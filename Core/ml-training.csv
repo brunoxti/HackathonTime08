@@ -1,0 +1,28 @@
+application_host,alert_description,synthetic_test_name
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/ValidateSignature, envio-ordem-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/ValidateSignature, retirada-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/ValidateSignature, alteracao-dados-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/ValidateSignature, alteracao-dados-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/ValidateSignature, alteracao-dados-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/ValidateSignature, alteracao-dados-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/ValidateSignature, alteracao-dados-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/ValidateSignature, alteracao-dados-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/ValidateSignature, alteracao-dados-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/ValidateSignature, alteracao-dados-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/ValidateSignature, alteracao-dados-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/Login, login-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/Login, login-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/Login, login-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/Login, login-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/Login, login-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/Login, login-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/Login, login-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/Login, login-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/Login, login-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/Login, login-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/Login, login-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/Login, login-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/Login, login-clear-pro
+Appdynamics_PRD_Clear.Security.API, HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/Login, login-clear-pro
+
+ 
