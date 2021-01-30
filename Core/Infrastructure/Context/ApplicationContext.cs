@@ -1,8 +1,8 @@
-﻿using Core.Models;
-using Infrastructure.Map;
+﻿using Core.Infrastructure.Map;
+using Core.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Context
+namespace Core.Infrastructure.Context
 {
     public class ApplicationContext : DbContext
     {

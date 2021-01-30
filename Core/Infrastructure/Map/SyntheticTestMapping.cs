@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Map
+namespace Core.Infrastructure.Map
 {
     public class SyntheticTestMapping : IEntityTypeConfiguration<SyntheticTest>
     {
