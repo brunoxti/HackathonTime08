@@ -24,6 +24,7 @@ namespace Core
 
         private static void ConfigureServices(this IServiceCollection services)
         {
+            services.AddHttpClient();
             services.AddTransient<ISyntheticTestsApplicationService, SyntheticTestsApplicationService>();
             services.AddTransient<IBotIntegrationService, BotIntegrationService>();
             services.AddTransient<IZabbixIntegrationService, ZabbixIntegrationService>();
