@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Unreal-NocML.Model\Unreal-NocML.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="ml-training.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
