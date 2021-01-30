@@ -2,6 +2,7 @@
 using Core.Domain.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -17,19 +18,28 @@ namespace Core.Infrastructure.Services
             _clientFactory = clientFactory;
         }
 
-        public async Task NotifyAsync(IEnumerable<SyntheticTestResult> enumerable)
+        public async Task NotifyAsync(NocAlert alert, IEnumerable<SyntheticTestResult> enumerable)
         {
             var uri = new Uri(url);
 
             var client = _clientFactory.CreateClient();
 
-            var response = await client.GetAsync(uri);
+            var content = string.Empty;
+            using (StreamReader r = new StreamReader("resources\\teams-message.json"))
+            {
+                content = r.ReadToEnd();
+            }
+
+            content = content.Replace("{alert_host}", alert.Host);
+            content = content.Replace("{alert_description}", alert.Description);
+            content = content.Replace("{due_date}", DateTime.Now.ToString());
+            content = content.Replace("{url_video}", "");
+
+            var response = await client.PostAsync(uri, new StringContent(content));
 
             if (response.IsSuccessStatusCode)
             {
                 var contents = await response.Content.ReadAsStringAsync();
-            }
-
             }
         }
     }
