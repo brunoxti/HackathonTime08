@@ -1,4 +1,5 @@
 ﻿using Core.Application.Contract;
+using Core.Application.IntegrationContracts;
 using Core.Domain.Models;
 using Core.Infrastructure.Context;
 using Microsoft.ML;
@@ -12,17 +13,15 @@ namespace Core.Application.Services
 {
     public class SyntheticTestsApplicationService : ISyntheticTestsApplicationService
     {
-        private static Lazy<PredictionEngine<ArtificialIntelligenceInput, ArtificialIntelligenceOutput>> PredictionEngine = new Lazy<PredictionEngine<ArtificialIntelligenceInput, ArtificialIntelligenceOutput>>(CreatePredictionEngine);
-
         public static string MLNetModelPath = Path.GetFullPath("MLModel.zip");
 
         private readonly ApplicationContext _applicationContext;
 
-        private readonly IBotApplicationService _botApplicationService;
-        private readonly ISyntheticWorkerApplicationService _syntheticWorkerApplicationService;
-        private readonly IZabbixIntegratorApplicationService _zabbixIntegratorApplicationService;
+        private readonly IBotIntegrationService _botApplicationService;
+        private readonly ISyntheticWorkerIntegrationService _syntheticWorkerApplicationService;
+        private readonly IZabbixIntegrationService _zabbixIntegratorApplicationService;
 
-        public SyntheticTestsApplicationService(ApplicationContext applicationContext, IBotApplicationService botApplicationService, ISyntheticWorkerApplicationService syntheticWorkerApplicationService, IZabbixIntegratorApplicationService zabbixIntegratorApplicationService)
+        public SyntheticTestsApplicationService(ApplicationContext applicationContext, IBotIntegrationService botApplicationService, ISyntheticWorkerIntegrationService syntheticWorkerApplicationService, IZabbixIntegrationService zabbixIntegratorApplicationService)
         {
             _applicationContext = applicationContext;
             _botApplicationService = botApplicationService;
@@ -32,7 +31,7 @@ namespace Core.Application.Services
 
         public async Task ExecuteAsync()
         {
-
+            //await _botApplicationService.NotifyAsync(default);
             await _syntheticWorkerApplicationService.StartSyntheticTest(string.Empty);
             await _zabbixIntegratorApplicationService.AckAlert(default);
 
@@ -71,8 +70,6 @@ namespace Core.Application.Services
 
             Console.WriteLine("\n=============== Initializing tests ===============");
 
-            await _botApplicationService.NotifyAsync(nocAlert, new List<SyntheticTestResult>());
-
             //var threads = new List<Task<SyntheticTestResult>>();
             //top3recomendedTests.ForEach(test =>
             //{
@@ -107,7 +104,8 @@ namespace Core.Application.Services
 
         public static ArtificialIntelligenceOutput Predict(ArtificialIntelligenceInput input)
         {
-            ArtificialIntelligenceOutput result = PredictionEngine.Value.Predict(input);
+            var predictionEngine = new Lazy<PredictionEngine<ArtificialIntelligenceInput, ArtificialIntelligenceOutput>>(CreatePredictionEngine);
+            ArtificialIntelligenceOutput result = predictionEngine.Value.Predict(input);
             return result;
         }
 
@@ -117,7 +115,7 @@ namespace Core.Application.Services
             MLContext mlContext = new MLContext();
 
             // Load model & create prediction engine
-            ITransformer mlModel = mlContext.Model.Load(MLNetModelPath, out var modelInputSchema);
+            ITransformer mlModel = mlContext.Model.Load(Path.GetFullPath("MLModel.zip"), out var modelInputSchema);
             var predEngine = mlContext.Model.CreatePredictionEngine<ArtificialIntelligenceInput, ArtificialIntelligenceOutput>(mlModel);
 
             return predEngine;
