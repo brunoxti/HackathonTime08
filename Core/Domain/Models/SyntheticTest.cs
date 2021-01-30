@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Threading.Tasks;
 
-namespace Core.Models
+namespace Core.Domain.Models
 {
     public class SyntheticTest
     {

@@ -1,5 +1,5 @@
-using Core.Application;
-using Core.Models;
+using Core.Application.Services;
+using Core.Domain.Models;
 using Microsoft.ML;
 using Microsoft.ML.Data;
 using System;
@@ -12,7 +12,7 @@ namespace Unreal_NocML.ConsoleApp
     public static class ModelBuilder
     {
         private static string TRAIN_DATA_FILEPATH = @"C:\dev\Clear\Repos\HackathonTime08\Core\ml-training.csv";
-        private static string MODEL_FILE = ConsumeModel.MLNetModelPath;
+        private static string MODEL_FILE = SyntheticTestsApplicationService.MLNetModelPath;
 
         // Create MLContext to be shared across the model creation workflow objects 
         // Set a random seed for repeatable/deterministic results across multiple trainings.

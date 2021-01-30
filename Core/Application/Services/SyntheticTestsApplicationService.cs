@@ -1,24 +1,41 @@
-﻿using Core.Concrete;
+﻿using Core.Application.Contract;
 using Core.Infrastructure.Context;
-using Core.Models;
+using Core.Domain.Models;
+using Microsoft.ML;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Core.Application
+namespace Core.Application.Services
 {
-    public class SyntheticTestsApplication
+    public class SyntheticTestsApplicationService : ISyntheticTestsApplicationService
     {
+        private static Lazy<PredictionEngine<ArtificialIntelligenceInput, ArtificialIntelligenceOutput>> PredictionEngine = new Lazy<PredictionEngine<ArtificialIntelligenceInput, ArtificialIntelligenceOutput>>(CreatePredictionEngine);
+
+        public static string MLNetModelPath = Path.GetFullPath("MLModel.zip");
+
         private readonly ApplicationContext _applicationContext;
 
-        public SyntheticTestsApplication(ApplicationContext applicationContext)
+        private readonly IBotApplicationService _botApplicationService;
+        private readonly ISyntheticWorkerApplicationService _syntheticWorkerApplicationService;
+        private readonly IZabbixIntegratorApplicationService _zabbixIntegratorApplicationService;
+
+        public SyntheticTestsApplicationService(ApplicationContext applicationContext, IBotApplicationService botApplicationService, ISyntheticWorkerApplicationService syntheticWorkerApplicationService, IZabbixIntegratorApplicationService zabbixIntegratorApplicationService)
         {
             _applicationContext = applicationContext;
+            _botApplicationService = botApplicationService;
+            _syntheticWorkerApplicationService = syntheticWorkerApplicationService;
+            _zabbixIntegratorApplicationService = zabbixIntegratorApplicationService;
         }
 
         public async Task ExecuteAsync()
         {
+            await _botApplicationService.NotifyAsync(default);
+            await _syntheticWorkerApplicationService.StartSyntheticTest(string.Empty);
+            await _zabbixIntegratorApplicationService.AckAlert(default);
+
             var nocAlert = new NocAlert()
             {
                 Host = "Appdynamics_PRD_Clear.Security.API",
@@ -37,7 +54,7 @@ namespace Core.Application
                     Recomended_synthetic_test = test.Description,
                 };
 
-                var predictionResult = ConsumeModel.Predict(input);
+                var predictionResult = Predict(input);
 
                 test.Rating = predictionResult.Score;
 
@@ -53,8 +70,6 @@ namespace Core.Application
             });
 
             Console.WriteLine("\n=============== Initializing tests ===============");
-
-            await new BotIntegrator().NotifyAsync(new List<SyntheticTestResult>());
 
             //var threads = new List<Task<SyntheticTestResult>>();
             //top3recomendedTests.ForEach(test =>
@@ -86,6 +101,24 @@ namespace Core.Application
             return sintheticTests
                 .Where(x => x.Rating > 90.0)
                 .OrderByDescending(x => x.Rating).Take(3).ToList();
+        }
+
+        public static ArtificialIntelligenceOutput Predict(ArtificialIntelligenceInput input)
+        {
+            ArtificialIntelligenceOutput result = PredictionEngine.Value.Predict(input);
+            return result;
+        }
+
+        public static PredictionEngine<ArtificialIntelligenceInput, ArtificialIntelligenceOutput> CreatePredictionEngine()
+        {
+            // Create new MLContext
+            MLContext mlContext = new MLContext();
+
+            // Load model & create prediction engine
+            ITransformer mlModel = mlContext.Model.Load(MLNetModelPath, out var modelInputSchema);
+            var predEngine = mlContext.Model.CreatePredictionEngine<ArtificialIntelligenceInput, ArtificialIntelligenceOutput>(mlModel);
+
+            return predEngine;
         }
     }
 }
