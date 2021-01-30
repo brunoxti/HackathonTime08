@@ -6,20 +6,19 @@
   "sections": [
     {
       "activityTitle": "Unreal Noc detectou um falso negativo",
-      "activitySubtitle": "Unreal Noc",
-      "activityImage": "",
+      "activitySubtitle": "Unreal Noc",      
       "facts": [
         {
           "name": "Host",
-          "value": "Appdynamics_PRD_Clear.Security.API"
+          "value": "{alert_host}"
         },
         {
-          "name": "Alert",
-          "value": "HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/Login"
+          "name": "Descricao",
+          "value": "{alert_description}"
         },
         {
-          "name": "Due date",
-          "value": "{date}"
+          "name": "Data",
+          "value": "{due_date}"
         }
       ],
       "markdown": true
@@ -28,7 +27,7 @@
   "potentialAction": [
     {
       "@type": "OpenUri",
-      "name": "Download Video Teste Sintetico",
+      "name": "Download do video do teste sintetico",
       "targets": [
         {
           "os": "default",

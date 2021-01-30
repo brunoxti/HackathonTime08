@@ -30,7 +30,7 @@ namespace Core.Infrastructure.Services
                 var contents = await response.Content.ReadAsStringAsync();
             }
 
-            Console.WriteLine("=============== End of process, hit any key to finish ===============");
+            }
         }
     }
 }
