@@ -1,4 +1,5 @@
-﻿using Core.Infrastructure.Context;
+﻿using Core.Contract;
+using Core.Infrastructure.Context;
 using Core.Models;
 using System;
 using System.Collections.Generic;
@@ -7,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Core.Application
 {
-    public class SyntheticTestsApplication
+    public class SyntheticTestsApplicationService : ISyntheticTestsApplicationService
     {
         private readonly ApplicationContext _applicationContext;
 
-        public SyntheticTestsApplication(ApplicationContext applicationContext)
+        public SyntheticTestsApplicationService(ApplicationContext applicationContext)
         {
             _applicationContext = applicationContext;
         }

@@ -1,5 +1,6 @@
 using Core;
 using Core.Application;
+using Core.Contract;
 using Core.Infrastructure.Context;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,24 +9,26 @@ namespace Unreal_NocML.ConsoleApp
     public class Program
     {
         private static ApplicationContext _context;
+        private static ISyntheticTestsApplicationService _syntheticTestsApplicationService;
 
         static void Main(string[] args)
         {
             ConfigureServices();
             ConfigureDatabase();
 
-            new SyntheticTestsApplication(_context).ExecuteAsync().Wait();
+            _syntheticTestsApplicationService.ExecuteAsync().Wait();
         }
 
         private static void ConfigureServices()
         {
             var services = new ServiceCollection();
 
-            CoreModule.ConfigureDatabase(services);
+            CoreModule.ConfigureCoreModule(services);
 
             var serviceProvider = services.BuildServiceProvider();
 
             _context = serviceProvider.GetService<ApplicationContext>();
+            _syntheticTestsApplicationService = serviceProvider.GetService<SyntheticTestsApplicationService>();
         }
 
         private static void ConfigureDatabase()
