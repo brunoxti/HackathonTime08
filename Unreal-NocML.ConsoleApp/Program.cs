@@ -16,6 +16,7 @@ namespace Unreal_NocML.ConsoleApp
 
         static void Main(string[] args)
         {
+            ConfigureServices();
             ConfigureDatabase();
 
             Console.WriteLine("=============== Start of process, hit any key to finish ===============");
@@ -111,7 +112,7 @@ namespace Unreal_NocML.ConsoleApp
                 .OrderByDescending(x => x.Rating).Take(3).ToList();
         }
 
-        private static void ConfigureDatabase()
+        private static void ConfigureServices()
         {
             var services = new ServiceCollection();
 
@@ -120,7 +121,10 @@ namespace Unreal_NocML.ConsoleApp
             var serviceProvider = services.BuildServiceProvider();
 
             _context = serviceProvider.GetService<ApplicationContext>();
+        }
 
+        private static void ConfigureDatabase()
+        {
             _context.Database.EnsureCreated();
         }
     }
