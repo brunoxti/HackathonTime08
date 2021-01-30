@@ -1,6 +1,7 @@
 ﻿using Core.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -15,8 +16,14 @@ namespace Core.Concrete
             {
                 using (var _client = new HttpClient())
                 {
+                    var content = string.Empty;
+                    using (StreamReader r = new StreamReader("resources\\teams-message.json"))
+                    {
+                        content = r.ReadToEnd();
 
-                    var content = "Play ja é nosso";
+                    }
+
+
                     // Perform Connector POST operation     
                     var httpResponseMessage = await _client.PostAsync(url, new StringContent(content));
                     // Read response content

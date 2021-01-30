@@ -54,20 +54,22 @@ namespace Core.Application
 
             Console.WriteLine("\n=============== Initializing tests ===============");
 
-            var threads = new List<Task<SyntheticTestResult>>();
-            top3recomendedTests.ForEach(test =>
-            {
-                threads.Add(Task<SyntheticTestResult>.Run(() => new SyntheticWorker().StartSyntheticTest(test.Description)));
+            await new BotIntegrator().NotifyAsync(new List<SyntheticTestResult>());
 
-            });
+            //var threads = new List<Task<SyntheticTestResult>>();
+            //top3recomendedTests.ForEach(test =>
+            //{
+            //    threads.Add(Task<SyntheticTestResult>.Run(() => new SyntheticWorker().StartSyntheticTest(test.Description)));
 
-            Task.WaitAll(threads.ToArray());
+            //});
 
-            if (threads.All(x => x.IsCompletedSuccessfully && x.Result == null))
-            {
-                new ZabbixIntegrator().AckAlert(nocAlert);
-                await new BotIntegrator().NotifyAsync(threads.Select(x => x.Result));
-            }
+            //Task.WaitAll(threads.ToArray());
+
+            //if (threads.All(x => x.IsCompletedSuccessfully && x.Result == null))
+            //{
+            //    new ZabbixIntegrator().AckAlert(nocAlert);
+            //    await new BotIntegrator().NotifyAsync(threads.Select(x => x.Result));
+            //}
 
             //dar ack 
             //enviar bot
