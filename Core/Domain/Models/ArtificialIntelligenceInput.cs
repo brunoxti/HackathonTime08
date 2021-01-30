@@ -1,6 +1,6 @@
 using Microsoft.ML.Data;
 
-namespace Core.Models
+namespace Core.Domain.Models
 {
     public class ArtificialIntelligenceInput
     {

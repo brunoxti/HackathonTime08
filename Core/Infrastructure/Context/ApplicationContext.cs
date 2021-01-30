@@ -1,5 +1,5 @@
 ﻿using Core.Infrastructure.Map;
-using Core.Models;
+using Core.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Core.Infrastructure.Context

@@ -1,5 +1,5 @@
-﻿using Core.Application;
-using Core.Contract;
+﻿using Core.Application.Services;
+using Core.Application.Contract;
 using Core.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +23,9 @@ namespace Core
         private static void ConfigureServices(this IServiceCollection services)
         {
             services.AddTransient<ISyntheticTestsApplicationService, SyntheticTestsApplicationService>();
+            services.AddTransient<IBotApplicationService, BotApplicationService>();
+            services.AddTransient<IZabbixIntegratorApplicationService, ZabbixIntegratorApplicationService>();
+            services.AddTransient<ISyntheticWorkerApplicationService, SyntheticWorkerApplicationService>();
         }
     }
 }

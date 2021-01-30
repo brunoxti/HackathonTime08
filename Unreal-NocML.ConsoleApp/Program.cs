@@ -1,8 +1,7 @@
 using Core;
-using Core.Application;
-using Core.Contract;
 using Core.Infrastructure.Context;
 using Microsoft.Extensions.DependencyInjection;
+using Core.Application.Contract;
 
 namespace Unreal_NocML.ConsoleApp
 {
@@ -28,7 +27,7 @@ namespace Unreal_NocML.ConsoleApp
             var serviceProvider = services.BuildServiceProvider();
 
             _context = serviceProvider.GetService<ApplicationContext>();
-            _syntheticTestsApplicationService = serviceProvider.GetService<SyntheticTestsApplicationService>();
+            _syntheticTestsApplicationService = serviceProvider.GetService<ISyntheticTestsApplicationService>();
         }
 
         private static void ConfigureDatabase()

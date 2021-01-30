@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Core.Contract
+namespace Core.Application.Contract
 {
     public interface ISyntheticTestsApplicationService
     {

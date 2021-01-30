@@ -1,4 +1,4 @@
-namespace Core.Models
+namespace Core.Domain.Models
 {
     public class ArtificialIntelligenceOutput
     {
