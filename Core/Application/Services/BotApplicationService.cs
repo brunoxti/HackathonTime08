@@ -2,6 +2,8 @@
 using Core.Domain.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Core.Application.Services
@@ -12,19 +14,32 @@ namespace Core.Application.Services
 
         public async Task NotifyAsync(IEnumerable<SyntheticTestResult> enumerable)
         {
-            //using (var _client = new HttpClient())
-            //{
+            try
+            {
+                using (var _client = new HttpClient())
+                {
+                    var content = string.Empty;
+                    using (StreamReader r = new StreamReader("resources\\teams-message.json"))
+                    {
+                        content = r.ReadToEnd();
 
-            //    var content = "Play ja é nosso";
-            //    // Perform Connector POST operation     
-            //    var httpResponseMessage = await _client.PostAsync(url, new StringContent(content));
-            //    // Read response content
-            //    var responseContent = await httpResponseMessage.Content.ReadAsStringAsync();
-            //    if (responseContent.Contains("Microsoft Teams endpoint returned HTTP error 429"))
-            //    {
-            //        // initiate retry logic
-            //    }
-            //}
+                    }
+
+
+                    // Perform Connector POST operation     
+                    var httpResponseMessage = await _client.PostAsync(url, new StringContent(content));
+                    // Read response content
+                    var responseContent = await httpResponseMessage.Content.ReadAsStringAsync();
+                    if (responseContent.Contains("Microsoft Teams endpoint returned HTTP error 429"))
+                    {
+                        // initiate retry logic
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
 
             Console.WriteLine("=============== End of process, hit any key to finish ===============");
         }

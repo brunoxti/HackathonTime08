@@ -1,0 +1,40 @@
+{
+  "@type": "MessageCard",
+  "@context": "http://schema.org/extensions",
+  "themeColor": "0076D7",
+  "summary": "Unreal Noc detectou um falso negativo",
+  "sections": [
+    {
+      "activityTitle": "Unreal Noc detectou um falso negativo",
+      "activitySubtitle": "Unreal Noc",
+      "activityImage": "",
+      "facts": [
+        {
+          "name": "Host",
+          "value": "Appdynamics_PRD_Clear.Security.API"
+        },
+        {
+          "name": "Alert",
+          "value": "HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/Login"
+        },
+        {
+          "name": "Due date",
+          "value": "{date}"
+        }
+      ],
+      "markdown": true
+    }
+  ],
+  "potentialAction": [
+    {
+      "@type": "OpenUri",
+      "name": "Download Video Teste Sintetico",
+      "targets": [
+        {
+          "os": "default",
+          "uri": "https://docs.microsoft.com/outlook/actionable-messages"
+        }
+      ]
+    }
+  ]
+}
