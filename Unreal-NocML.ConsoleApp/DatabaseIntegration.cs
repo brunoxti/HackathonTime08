@@ -3,19 +3,20 @@ using Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Unreal_NocML.ConsoleApp
 {
     public static class DatabaseIntegration
     {
-        public async static void Seed()
+        public async static Task Seed()
         {
             using (var context = new ApplicationContext())
             {
+                context.Database.Migrate();
+
                 if (await context.SyntheticTests.AnyAsync())
                     return;
-
-                context.Database.Migrate();
 
                 var test1 = new SyntheticTest();
                 test1.Description = "envio-ordem-clear-pro";

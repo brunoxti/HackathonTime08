@@ -22,7 +22,7 @@ namespace Unreal_NocML.ConsoleApp
 
             Console.WriteLine($"\n ALERT: {nocAlert.Host} - {nocAlert.Description}");
 
-            DatabaseIntegration.Seed();
+            DatabaseIntegration.Seed().Wait() ;
             var sintheticTests = DatabaseIntegration.GetSyntheticTest() ;
 
             sintheticTests.ForEach(test =>
