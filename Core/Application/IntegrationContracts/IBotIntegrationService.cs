@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Core.Application.Contract
+namespace Core.Application.IntegrationContracts
 {
-    public interface IBotApplicationService
+    public interface IBotIntegrationService
     {
         Task NotifyAsync(IEnumerable<SyntheticTestResult> enumerable);
     }

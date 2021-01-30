@@ -1,11 +1,11 @@
-﻿using Core.Application.Contract;
+﻿using Core.Application.IntegrationContracts;
 using Core.Domain.Models;
 using System;
 using System.Threading.Tasks;
 
 namespace Core.Application.Services
 {
-    public class ZabbixIntegratorApplicationService : IZabbixIntegratorApplicationService
+    public class ZabbixIntegrationService : IZabbixIntegrationService
     {
         public async Task AckAlert(NocAlert nocAlert)
         {

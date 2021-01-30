@@ -1,11 +1,11 @@
-﻿using Core.Application.Contract;
+﻿using Core.Application.IntegrationContracts;
 using Core.Domain.Models;
 using System;
 using System.Threading.Tasks;
 
-namespace Core.Application.Services
+namespace Core.Infrastructure.Services
 {
-    public class SyntheticWorkerApplicationService : ISyntheticWorkerApplicationService
+    public class SyntheticWorkerIntegrationService : ISyntheticWorkerIntegrationService
     {
         public Task<SyntheticTestResult> StartSyntheticTest(string name)
         {

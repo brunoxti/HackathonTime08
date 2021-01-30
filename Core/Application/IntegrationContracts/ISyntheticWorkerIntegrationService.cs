@@ -1,9 +1,9 @@
 ﻿using Core.Domain.Models;
 using System.Threading.Tasks;
 
-namespace Core.Application.Contract
+namespace Core.Application.IntegrationContracts
 {
-    public interface ISyntheticWorkerApplicationService
+    public interface ISyntheticWorkerIntegrationService
     {
         Task<SyntheticTestResult> StartSyntheticTest(string name);
     }

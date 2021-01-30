@@ -1,7 +1,7 @@
 using Core;
+using Core.Application.Contract;
 using Core.Infrastructure.Context;
 using Microsoft.Extensions.DependencyInjection;
-using Core.Application.Contract;
 
 namespace UnrealNoc.ConsoleApp
 {
