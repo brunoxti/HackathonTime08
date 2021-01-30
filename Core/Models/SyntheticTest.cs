@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Threading.Tasks;
 
 namespace Core.Models
@@ -8,6 +9,9 @@ namespace Core.Models
         public Guid Id { get; set; }
 
         public string Description { get; set; }
+
+        [NotMapped]
+        public Single Rating { get; set; }
 
         public Task<bool> ExecuteAsync()
         {

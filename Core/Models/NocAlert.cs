@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace Core.Models
+﻿namespace Core.Models
 {
     public class NocAlert
     {
-        public Guid Id { get; set; }
-        public string ApplicationId { get; set; }
+        public string Host { get; set; }
+        public string Description { get; set; }
     }
 }
