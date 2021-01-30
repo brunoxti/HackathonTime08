@@ -17,7 +17,6 @@ namespace Unreal_NocML.ConsoleApp
         static void Main(string[] args)
         {
             ConfigureDatabase();
-         
 
             Console.WriteLine("=============== Start of process, hit any key to finish ===============");
 
