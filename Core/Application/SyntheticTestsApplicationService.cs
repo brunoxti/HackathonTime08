@@ -57,7 +57,7 @@ namespace Core.Application
             var threads = new List<Task<SyntheticTestResult>>();
             top3recomendedTests.ForEach(test =>
             {
-                threads.Add(Task<SyntheticTestResult>.Run(() => new Worker().StartSyntheticTest(test.Description)));
+                threads.Add(Task<SyntheticTestResult>.Run(() => new SyntheticWorker().StartSyntheticTest(test.Description)));
 
             });
 
@@ -66,7 +66,7 @@ namespace Core.Application
             if (threads.All(x => x.IsCompletedSuccessfully && x.Result == null))
             {
                 new ZabbixIntegrator().AckAlert(nocAlert);
-                new BotIntegrator().Notify(threads.Select(x => x.Result));
+                await new BotIntegrator().NotifyAsync(threads.Select(x => x.Result));
             }
 
             //dar ack 
@@ -78,28 +78,6 @@ namespace Core.Application
             //enviar resultado pro Teams via bot
         }
 
-        public class BotIntegrator
-        {
-            internal void Notify(IEnumerable<SyntheticTestResult> enumerable)
-            {
-                throw new NotImplementedException();
-            }
-        }
-        public class ZabbixIntegrator
-        {
-            internal void AckAlert(NocAlert nocAlert)
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public class Worker
-        {
-            public Task<SyntheticTestResult> StartSyntheticTest(string name)
-            {
-                throw new NotImplementedException();
-            }
-        }
 
         private static List<SyntheticTest> getTop3BestRecommended(List<SyntheticTest> sintheticTests)
         {
