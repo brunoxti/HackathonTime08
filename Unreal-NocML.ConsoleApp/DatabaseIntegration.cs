@@ -39,7 +39,7 @@ namespace Unreal_NocML.ConsoleApp
             }
         }
 
-        public static IEnumerable<SyntheticTest> GetSyntheticTest()
+        public static List<SyntheticTest> GetSyntheticTest()
         {
             using (var context = new ApplicationContext())
             {

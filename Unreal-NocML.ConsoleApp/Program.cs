@@ -20,10 +20,10 @@ namespace Unreal_NocML.ConsoleApp
                 Description = "HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/ValidateSignature"
             };
 
-
             Console.WriteLine($"\n ALERT: {nocAlert.Host} - {nocAlert.Description}");
 
-            var sintheticTests = GetSyntheticTests();
+            DatabaseIntegration.Seed();
+            var sintheticTests = DatabaseIntegration.GetSyntheticTest() ;
 
             sintheticTests.ForEach(test =>
             {
