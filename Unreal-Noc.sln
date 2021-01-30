@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{54B881A3-DF9B-4DB9-B2CB-51F8C82E4497}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{54B881A3-DF9B-4DB9-B2CB-51F8C82E4497}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{FE89FAEA-9DC3-47DD-A480-4E2C795985A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{54B881A3-DF9B-4DB9-B2CB-51F8C82E4497}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54B881A3-DF9B-4DB9-B2CB-51F8C82E4497}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54B881A3-DF9B-4DB9-B2CB-51F8C82E4497}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE89FAEA-9DC3-47DD-A480-4E2C795985A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE89FAEA-9DC3-47DD-A480-4E2C795985A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE89FAEA-9DC3-47DD-A480-4E2C795985A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE89FAEA-9DC3-47DD-A480-4E2C795985A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
