@@ -12,12 +12,12 @@
     <PackageReference Include="Microsoft.ML" Version="1.5.2" />
     <PackageReference Include="Microsoft.ML.Recommender" Version="0.17.2" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
-    <ProjectReference Include="..\Unreal-NocML.Model\Unreal-NocML.Model.csproj" />
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectCapability Include="ModelBuilderGenerated" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
   </ItemGroup>
 </Project>
