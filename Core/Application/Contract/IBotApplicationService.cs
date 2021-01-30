@@ -6,6 +6,6 @@ namespace Core.Application.Contract
 {
     public interface IBotApplicationService
     {
-        Task NotifyAsync(IEnumerable<SyntheticTestResult> enumerable);
+        Task NotifyAsync(NocAlert alert, IEnumerable<SyntheticTestResult> enumerable);
     }
 }

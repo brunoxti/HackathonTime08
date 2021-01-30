@@ -1,6 +1,6 @@
 ﻿using Core.Application.Contract;
-using Core.Infrastructure.Context;
 using Core.Domain.Models;
+using Core.Infrastructure.Context;
 using Microsoft.ML;
 using System;
 using System.Collections.Generic;
@@ -32,7 +32,7 @@ namespace Core.Application.Services
 
         public async Task ExecuteAsync()
         {
-            await _botApplicationService.NotifyAsync(default);
+
             await _syntheticWorkerApplicationService.StartSyntheticTest(string.Empty);
             await _zabbixIntegratorApplicationService.AckAlert(default);
 
@@ -70,6 +70,8 @@ namespace Core.Application.Services
             });
 
             Console.WriteLine("\n=============== Initializing tests ===============");
+
+            await _botApplicationService.NotifyAsync(nocAlert, new List<SyntheticTestResult>());
 
             //var threads = new List<Task<SyntheticTestResult>>();
             //top3recomendedTests.ForEach(test =>
