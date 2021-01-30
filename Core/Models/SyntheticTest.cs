@@ -6,7 +6,7 @@ namespace Core.Models
 {
     public class SyntheticTest
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public string Description { get; set; }
 
