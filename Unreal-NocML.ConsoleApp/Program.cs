@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Unreal_NocML.Model;
 
 namespace Unreal_NocML.ConsoleApp
@@ -53,6 +54,24 @@ namespace Unreal_NocML.ConsoleApp
                 Console.WriteLine($"Recomended_synthetic_test: {test.Description} - Rating: {test.Rating}");
             });
 
+            Console.WriteLine("\n=============== Initializing tests ===============");
+
+            var threads = new List<Task<SyntheticTestResult>>();
+            top3recomendedTests.ForEach(test =>
+            {
+                threads.Add(Task<SyntheticTestResult>.Run(() => new Worker().StartSyntheticTest(test.Description)));
+
+            });
+
+            Task.WaitAll(threads.ToArray());
+
+
+            if (threads.All(x => x.IsCompletedSuccessfully && x.Result == null))
+            {
+                new ZabbixIntegrator().AckAlert(nocAlert);
+                new BotIntegrator().Notify(threads.Select(x => x.Result));
+            }
+
             //dar ack 
             //enviar bot
             Console.WriteLine("=============== End of process, hit any key to finish ===============");
@@ -60,6 +79,31 @@ namespace Unreal_NocML.ConsoleApp
 
 
         }
+
+        public class BotIntegrator
+        {
+            internal void Notify(IEnumerable<SyntheticTestResult> enumerable)
+            {
+                throw new NotImplementedException();
+            }
+        }
+        public class ZabbixIntegrator
+        {
+            internal void AckAlert(NocAlert nocAlert)
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public class Worker
+        {
+            public Task<SyntheticTestResult> StartSyntheticTest(string name)
+            {
+                throw new NotImplementedException();
+            }
+
+        }
+
 
         private static List<SyntheticTest> getTop3BestRecommended(List<SyntheticTest> sintheticTests)
         {
