@@ -1,7 +1,6 @@
 ﻿using Core.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
 
 namespace Infrastructure.Map
 {
@@ -9,7 +8,9 @@ namespace Infrastructure.Map
     {
         public void Configure(EntityTypeBuilder<SyntheticTest> builder)
         {
-            throw new NotImplementedException();
+            builder.ToTable("SyntheticTest");
+            builder.HasKey(p => p.Id);
+            builder.Property(p => p.Description).IsRequired();
         }
     }
 }
