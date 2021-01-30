@@ -9,6 +9,10 @@ namespace Unreal_NocML.ConsoleApp
     {
         static void Main(string[] args)
         {
+            DatabaseIntegration.Seed();
+
+            var scenarios = DatabaseIntegration.GetSyntheticTest();
+
             // Create single instance of sample data from first line of dataset for model input
             ModelInput sampleData = new ModelInput()
             {
