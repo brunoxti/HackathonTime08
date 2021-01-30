@@ -1,3 +1,4 @@
+using Core.Concrete;
 using Core.Models;
 using Infrastructure;
 using Infrastructure.Context;
@@ -14,7 +15,7 @@ namespace Unreal_NocML.ConsoleApp
     {
         private static ApplicationContext _context;
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             ConfigureServices();
             ConfigureDatabase();
@@ -56,21 +57,23 @@ namespace Unreal_NocML.ConsoleApp
 
             Console.WriteLine("\n=============== Initializing tests ===============");
 
-            var threads = new List<Task<SyntheticTestResult>>();
-            top3recomendedTests.ForEach(test =>
-            {
-                threads.Add(Task<SyntheticTestResult>.Run(() => new Worker().StartSyntheticTest(test.Description)));
+            await new BotIntegrator().NotifyAsync(new List<SyntheticTestResult> { });
 
-            });
+            //var threads = new List<Task<SyntheticTestResult>>();
+            //top3recomendedTests.ForEach(test =>
+            //{
+            //    threads.Add(Task<SyntheticTestResult>.Run(() => new Worker().StartSyntheticTest(test.Description)));
 
-            Task.WaitAll(threads.ToArray());
+            //});
+
+            //Task.WaitAll(threads.ToArray());
 
 
-            if (threads.All(x => x.IsCompletedSuccessfully && x.Result == null))
-            {
-                new ZabbixIntegrator().AckAlert(nocAlert);
-                new BotIntegrator().Notify(threads.Select(x => x.Result));
-            }
+            //if (threads.All(x => x.IsCompletedSuccessfully && x.Result == null))
+            //{
+            //    //new ZabbixIntegrator().AckAlert(nocAlert);
+            //    await new BotIntegrator().NotifyAsync(threads.Select(x => x.Result));
+            //}
 
             //dar ack 
             //enviar bot
@@ -80,13 +83,7 @@ namespace Unreal_NocML.ConsoleApp
 
         }
 
-        public class BotIntegrator
-        {
-            internal void Notify(IEnumerable<SyntheticTestResult> enumerable)
-            {
-                throw new NotImplementedException();
-            }
-        }
+
         public class ZabbixIntegrator
         {
             internal void AckAlert(NocAlert nocAlert)
