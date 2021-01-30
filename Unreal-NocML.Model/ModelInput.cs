@@ -4,7 +4,7 @@ using Microsoft.ML.Data;
 
 namespace Unreal_NocML.Model
 {
-    public class ModelInput
+    public class ArtificialIntelligenceInput
     {
         [ColumnName("rating"), LoadColumn(0)]
         public float Rating { get; set; }

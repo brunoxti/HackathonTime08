@@ -10,6 +10,7 @@ namespace Infrastructure.Context
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) { }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new SyntheticTestMapping());
