@@ -6,7 +6,7 @@
 <h1>Equipe:</h1>
 
 1. Bruno Alves 
-2. Reinicius Fostaini 
+2. Renicius Fostaini 
 3. Raquel Lafetá
 4. Ivan Lopes
 5. Edson Costa 
