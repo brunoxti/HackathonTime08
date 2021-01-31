@@ -2,10 +2,10 @@
   "@type": "MessageCard",
   "@context": "http://schema.org/extensions",
   "themeColor": "0076D7",
-  "summary": "Unreal Noc detectou um falso negativo",
+  "summary": "Unreal Noc detectou um falso positivo",
   "sections": [
     {
-      "activityTitle": "Unreal Noc detectou um falso negativo",
+      "activityTitle": "Unreal Noc detectou um falso positivo",
       "activitySubtitle": "Unreal Noc",      
       "facts": [
         {

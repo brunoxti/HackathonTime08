@@ -71,7 +71,7 @@ namespace Core.Application.Services
             });
 
             Console.WriteLine("\n=============== Initializing tests ===============");
-
+            await _botApplicationService.NotifyAsync(nocAlert, new List<SyntheticTestResult>());
             //var threads = new List<Task<SyntheticTestResult>>();
             //top3recomendedTests.ForEach(test =>
             //{
@@ -100,7 +100,6 @@ namespace Core.Application.Services
         private static List<SyntheticTest> getTop3BestRecommended(List<SyntheticTest> sintheticTests)
         {
             return sintheticTests
-                .Where(x => x.Rating > 90.0)
                 .OrderByDescending(x => x.Rating).Take(3).ToList();
         }
 
