@@ -63,18 +63,19 @@ A IA dispara automaticamente este teste sintético, eliminando a interação hum
 	Validar o uso de testes sintéticos pensando em trabalhos futuros, evolução do MVP, que pode ter uma cobertura mais abrangente e tratar muitos outros problemas segundo hipóteses apresentadas nos trabalhos futuros. 
 	
 <h2>Solução Técnica:</h2>
-**A Solução envolve algumas funcionalidades que serão descritas a seguir.**
+1. **A Solução envolve algumas funcionalidades que serão descritas a seguir.**
 
-**Criação dos testes Sintéticos.**
+2. **Criação dos testes Sintéticos.**
 	
-**Treinamento da IA para realizar os testes Sintético**
+3. **Treinamento da IA para realizar os testes Sintético**
 
-**Integrar a IA com o Teams para envio de Comunicação**
+4. **Integrar a IA com o Teams para envio de Comunicação**
 
-**Formalizar pelo Teams  sobre o fechamento de Incidentes Falsos Positivos**
+5. **Formalizar pelo Teams  sobre o fechamento de Incidentes Falsos Positivos**
+
    OBS: Alertas Verdadeiros serão verificados, mas não serão respondidos, inicialmente.
 
-**Formalizar o teste através do vídeo com evidência, enviados junto com a mensagem do Teams.**
+6. **Formalizar o teste através do vídeo com evidência, enviados junto com a mensagem do Teams.**
 
 
 
