@@ -18,21 +18,21 @@ Camadas do Projeto
 ### Solution NocWatcher.Core 
 
     ├── Application			  # Camada de aplicação
-        ├──Service			  # Serviços para execução dos testes do com IA
-        ├──Contract			  # Contratos (Interface) da aplicação IA
-        ├──Dto			  # Contratos de requisição para os testes 	
-        ├──IntegrationContracts	  # Contrados (Interfaces) dos serviços de inegração(Testes Sintéticos, Zabbix, BotTeams)
+        ├──Service			    # Serviços para execução dos testes do com IA
+        ├──Contract			    # Contratos (Interface) da aplicação IA
+        ├──Dto			    # Contratos de requisição para os testes 	
+        ├──IntegrationContracts	    # Contrados (Interfaces) dos serviços de inegração(Testes Sintéticos, Zabbix, BotTeams)
    
 	├──Domain                         # Camada de Dominio/Models (Contratos Request/Response) IA e Zabbix
 
     ├── Infrastructure                # Camada de infraestrutura (Integrações)
-	├──Configuration                  # Camada de configuração
-	├──Context    			  # Contexto da aplicação estrutura de de aprendizado da IA	
-	├──Map				  # Mapeamentos banco	 
-	├──Services			  # Serviços de integração com os serviços (Zabbix, TEstes Sinteticos, BotTeams)
+	    ├──Configuration                # Camada de configuração
+	    ├──Context    		    # Contexto da aplicação estrutura de de aprendizado da IA	
+	    ├──Map			    # Mapeamentos banco	 
+	    ├──Services			    # Serviços de integração com os serviços (Zabbix, TEstes Sinteticos, BotTeams)
    
-	├── Migrations                    # Migrations do bando de dados da IA
-	├── Resources                     # TEmplates json de testes de integração
+    ├── Migrations                    # Migrations do bando de dados da IA
+    ├── Resources                     # TEmplates json de testes de integração
 
 
 
@@ -48,10 +48,10 @@ Camadas do Projeto
 
 
 	├── ConsoleApp                    # Console Aplication para rodar a aplicação.(Mais facil para apresentação no Hackathon)
-		├──Controllers		  # Controllers  Controller de recebimento de notificação do Zabbix
-		├──appSettings            # Arquivo de cofiguração
-		├──Program		  # Classe de inicialição
-		├──Starup		  # Classe para configurar serviços por injeção de dependencia.
+		├──Controllers		    # Controllers  Controller de recebimento de notificação do Zabbix
+		├──appSettings              # Arquivo de cofiguração
+		├──Program		    # Classe de inicialição
+		├──Starup		    # Classe para configurar serviços por injeção de dependencia.
    
    
 <h1>Título: Uma solução para detecção e tratativa de problemas em produção focada na perspectiva do cliente final</h1>
