@@ -34,7 +34,7 @@ Segue um exemplo de alerta para o fluxo da assinatura eletrônica:
 **Appdynamics_PRD_Clear.Security.API HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/ValidateSignature**
 
 ![image001](https://user-images.githubusercontent.com/10197871/106390059-5de61900-63c5-11eb-845a-93f754f7323e.jpg)
-Figura 01:  Exemplo de mensagem enviada para o Teams diante a ocorrência de um falso positivo. 
+Figura 1:  Exemplo de mensagem enviada para o Teams diante a ocorrência de um falso positivo. 
 
 ![image002](https://user-images.githubusercontent.com/10197871/106390194-f67c9900-63c5-11eb-841e-58932dce68bd.jpg)
 Figura 2: Exemplo do arquivo de treinamento.
@@ -63,6 +63,7 @@ A IA dispara automaticamente este teste sintético, eliminando a interação hum
 	Validar o uso de testes sintéticos pensando em trabalhos futuros, evolução do MVP, que pode ter uma cobertura mais abrangente e tratar muitos outros problemas segundo hipóteses apresentadas nos trabalhos futuros. 
 	
 <h2>Solução Técnica:</h2>
+
 1. **A Solução envolve algumas funcionalidades que serão descritas a seguir.**
 
 2. **Criação dos testes Sintéticos.**
@@ -78,5 +79,19 @@ A IA dispara automaticamente este teste sintético, eliminando a interação hum
 6. **Formalizar o teste através do vídeo com evidência, enviados junto com a mensagem do Teams.**
 
 
+<h2>Melhorias Futuras:</h2>
 
+Como trabalhos futuros propomos melhorias pequenas que levam a ferramenta para o patamar de uma ferramenta de monitoria, com os testes sintéticos sendo executados periodicamente para o monitoramento do ambiente de produção. Como este processo de monitoria a solução aqui proposta conseguiria identificar os problemas e até antecipar os alertas.  Os alertas são identificados por sistemas de monitoria, mas as falhas em fluxo de negócio são em muitos casos identificados por clientes finais,  esta solução poderia ser mais rápida do que os clientes, pois não precisaria passar por todo processo de retorno, acionar atendimento, e o atendimento abrir um incidente. Em alguns casos pode inclusive identificar antes do cliente. O Incidente seria aberto pela IA associada ao teste sintético. Os testes sintéticos poderiam identificar problemas que hoje são identificados pelos sistemas atuais de monitoria, mas nestes casos poderia agregar valor com os dados sobre o problema que podem ser coletados durantes os testes, que descrevemos a seguir.  
+Outra melhoria possível seria os desenvolvedores receberem feedback rápido a respeito do incidente em produção, através do vídeo com o erro (já retornado hoje pelo MVP), e  com dados sobre os pontos do código afetados pelo problema. Este retorno seria viabilizado pela melhoria que envolve Análise Dinâmica para coleta de partes do código fonte envolvidos no problema, podendo assim agilizar o processo de tratativa dos erros.  
 
+**As seguintes melhorias estão previstas para as próximas versões:**
+
+1. Serviço de monitoria que roda os testes sintéticos a fim de antecipar os incidentes e verificar suas correções futuras;
+2. Cadastrar POP de tratamento, que pode ser executado pela IA;
+3. Monitorar execução das POPs de tratamento;
+4. Formalizar por email o envio destes comunicados;
+5. Formalizar pelo Teams  o início da tratativa da falha;
+6. Interação com o Taylor para fechamento de incidentes;
+7. Interface para criação dos testes;
+
+Esta proposta futura para o fluxo de Acionamentos do NOC funcionaria conforme o fluxo da Figura 3. 
