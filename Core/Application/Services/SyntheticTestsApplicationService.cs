@@ -33,7 +33,7 @@ namespace Core.Application.Services
         public async Task ExecuteAsync()
         {
             //await _botApplicationService.NotifyAsync(default);
-            await _detectiveIntegrationService.ExecuteSyntheticTest();
+
             await _syntheticWorkerApplicationService.StartSyntheticTest(string.Empty);
             await _zabbixIntegratorApplicationService.AckAlert(default);
 

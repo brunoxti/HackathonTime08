@@ -5,7 +5,6 @@ using System.IO;
 using System.Net.Http;
 using System.Reflection;
 using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Core.Infrastructure.Services
@@ -19,7 +18,7 @@ namespace Core.Infrastructure.Services
             _clientFactory = clientFactory;
         }
 
-        public async Task ExecuteSyntheticTest()
+        public async Task ExecuteSyntheticTest(Guid testId)
         {
             var uri = new Uri($"http://localhost:3000/test");
 
