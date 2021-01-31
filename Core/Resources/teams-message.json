@@ -1,11 +1,38 @@
-{
-  "jsonrpc": "2.0",
-  "method": "user.login",
-  "params": {
-    "output": null,
-    "user": "C000012",
-    "password": "App45112710*"
-  },
-  "id": 1,
-  "auth": null
+  "@type": "MessageCard",
+  "@context": "http://schema.org/extensions",
+  "themeColor": "0076D7",
+  "summary": "Unreal Noc detectou um falso positivo",
+  "sections": [
+    {
+      "activityTitle": "Unreal Noc detectou um falso positivo",
+      "activitySubtitle": "Unreal Noc",      
+      "facts": [
+        {
+          "name": "Host",
+          "value": "{alert_host}"
+        },
+        {
+          "name": "Descricao",
+          "value": "{alert_description}"
+        },
+        {
+          "name": "Data",
+          "value": "{due_date}"
+        }
+      ],
+      "markdown": true
+    }
+  ],
+  "potentialAction": [
+    {
+      "@type": "OpenUri",
+      "name": "Download do video do teste sintetico",
+      "targets": [
+        {
+          "os": "default",
+          "uri": "https://docs.microsoft.com/outlook/actionable-messages"
+        }
+      ]
+    }
+  ]
 }

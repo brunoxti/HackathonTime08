@@ -26,10 +26,12 @@ namespace Core
         private static void ConfigureServices(this IServiceCollection services)
         {
             services.AddSingleton<IConfiguration>(new ConfigurationBuilder().Build());
+            services.AddHttpClient();
             services.AddTransient<ISyntheticTestsApplicationService, SyntheticTestsApplicationService>();
             services.AddTransient<IBotIntegrationService, BotIntegrationService>();
             services.AddTransient<IZabbixIntegrationService, ZabbixIntegrationService>();
             services.AddTransient<ISyntheticWorkerIntegrationService, SyntheticWorkerIntegrationService>();
+            services.AddTransient<IDetectiveIntegrationService, DetectiveIntegrationService>();
         }
     }
 }

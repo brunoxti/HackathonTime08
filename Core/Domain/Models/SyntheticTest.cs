@@ -10,6 +10,8 @@ namespace Core.Domain.Models
 
         public string Description { get; set; }
 
+        public string DetectiveTestId { get; set; }
+
         [NotMapped]
         public Single Rating { get; set; }
 

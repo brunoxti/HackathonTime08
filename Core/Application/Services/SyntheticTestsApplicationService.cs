@@ -20,13 +20,14 @@ namespace Core.Application.Services
         private readonly IBotIntegrationService _botApplicationService;
         private readonly ISyntheticWorkerIntegrationService _syntheticWorkerApplicationService;
         private readonly IZabbixIntegrationService _zabbixIntegratorApplicationService;
+        private readonly IDetectiveIntegrationService _detectiveIntegrationService;
 
-        public SyntheticTestsApplicationService(ApplicationContext applicationContext, IBotIntegrationService botApplicationService, ISyntheticWorkerIntegrationService syntheticWorkerApplicationService, IZabbixIntegrationService zabbixIntegratorApplicationService)
+        public SyntheticTestsApplicationService(IBotIntegrationService botApplicationService, ISyntheticWorkerIntegrationService syntheticWorkerApplicationService, IZabbixIntegrationService zabbixIntegratorApplicationService, IDetectiveIntegrationService detectiveIntegrationService)
         {
-            _applicationContext = applicationContext;
             _botApplicationService = botApplicationService;
             _syntheticWorkerApplicationService = syntheticWorkerApplicationService;
             _zabbixIntegratorApplicationService = zabbixIntegratorApplicationService;
+            _detectiveIntegrationService = detectiveIntegrationService;
         }
 
         public async Task ExecuteAsync()
@@ -40,6 +41,7 @@ namespace Core.Application.Services
 
 
             //await _botApplicationService.NotifyAsync(default);
+
             await _syntheticWorkerApplicationService.StartSyntheticTest(string.Empty);
             
 
@@ -77,7 +79,7 @@ namespace Core.Application.Services
             });
 
             Console.WriteLine("\n=============== Initializing tests ===============");
-
+            await _botApplicationService.NotifyAsync(nocAlert, new List<SyntheticTestResult>());
             //var threads = new List<Task<SyntheticTestResult>>();
             //top3recomendedTests.ForEach(test =>
             //{
@@ -106,7 +108,6 @@ namespace Core.Application.Services
         private static List<SyntheticTest> getTop3BestRecommended(List<SyntheticTest> sintheticTests)
         {
             return sintheticTests
-                .Where(x => x.Rating > 90.0)
                 .OrderByDescending(x => x.Rating).Take(3).ToList();
         }
 
