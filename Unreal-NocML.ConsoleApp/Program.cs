@@ -18,15 +18,15 @@ namespace UnrealNoc.ConsoleApp
             ConfigureDatabase();
 
             _syntheticTestsApplicationService.ExecuteAsync().Wait();
-            
-            
+
+
         }
 
         private static void ConfigureServices()
         {
             var services = new ServiceCollection();
             var builder = new ConfigurationBuilder().Build();
-            
+
             CoreModule.ConfigureCoreModule(services);
 
             var serviceProvider = services.BuildServiceProvider();

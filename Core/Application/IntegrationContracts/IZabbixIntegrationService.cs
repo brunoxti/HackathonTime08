@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Core.Domain.Models;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace Core.Application.IntegrationContracts
 {

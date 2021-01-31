@@ -1,14 +1,14 @@
 ﻿using Core.Application.IntegrationContracts;
 using Core.Domain.Models;
+using Core.Domain.Models.ZabbixApi.Request;
+using Core.Domain.Models.ZabbixApi.Response;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Core.Domain.Models.ZabbixApi.Request;
-using Core.Domain.Models.ZabbixApi.Response;
-using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
 
 namespace Core.Application.Services
 {
@@ -16,7 +16,7 @@ namespace Core.Application.Services
     {
         private readonly IConfiguration _configuration;
         private readonly string _baseUrl = "https://opti.xpinc.io/zabbix-hml/api_jsonrpc.php";
-        
+
 
         private List<string> ListAlertActive { get; set; }
 
@@ -144,7 +144,7 @@ namespace Core.Application.Services
                 ListAlertActive.Add(evertId.eventid);
                 Console.WriteLine("=============== Receiving alerts {0} ===============", evertId);
             }
-            
+
             Console.WriteLine("=============== Receive alerts Complete===============");
             return Task.CompletedTask;
         }
