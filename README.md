@@ -1,6 +1,49 @@
 # HackathonTime08
 
 
+Projeto
+
+Camadas do Projeto
+
+<h1> Solution Unreal-Noc.Core </h1> 
+
+├── Application                   # Camada de aplicação
+   ├──Service					  # Serviços para execução dos testes do com IA
+   ├──Contract                    # Contratos (Interface) da aplicação IA
+   ├──Dto						  # Contratos de requisição para os testes 	
+   ├──IntegrationContracts		  # Contrados (Interfaces) dos serviços de inegração(Testes Sintéticos, Zabbix, BotTeams)
+   
+├──Domain                         # Camada de Dominio/Models (Contratos Request/Response) IA e Zabbix
+
+├── Infrastructure                # Source files (alternatively `lib` or `app`)
+   ├──Configuration               #	Camada de configuração
+   ├──Context    				  # Contexto da aplicação estrutura de de aprendizado da IA	
+   ├──Map						  # Mapeamentos banco	 
+   ├──Services					  # Serviços de integração com os serviços (Zabbix, TEstes Sinteticos, BotTeams)
+   
+├── Migrations                    # Migrations do bando de dados da IA
+├── Resources                     # TEmplates json de testes de integração
+
+
+
+
+<h1> Solution Unreal-Noc.ConsoleApp </h1> 
+
+├── ConsoleApp                    # Console Aplication para rodar a aplicação.(Mais facil para apresentação no Hackathon)
+
+
+
+
+<h1> Solution Unreal-Noc.WebApiReceiver </h1> 
+
+
+├── ConsoleApp                    # Console Aplication para rodar a aplicação.(Mais facil para apresentação no Hackathon)
+   ├──Controllers				  # Controllers  Controller de recebimento de notificação do Zabbix
+   ├──appSettings                 # Arquivo de cofiguração
+   ├──Program					  # Classe de inicialição
+   ├──Starup					  # Classe para configurar serviços por injeção de dependencia.
+   
+   
 <h1>Título: Uma solução para detecção e tratativa de problemas em produção focada na perspectiva do cliente final</h1>
 
 <h1>Equipe:</h1>
@@ -54,10 +97,10 @@ Outra melhoria possível seria os desenvolvedores receberem feedback rápido a r
 6. Interação com o Taylor para fechamento de incidentes;
 7. Interface para criação dos testes;
 
-Esta proposta futura para o fluxo de Acionamentos do NOC funcionaria conforme o fluxo da Figura 3.  **Clique na Figura para visualizar em tamanho original e ampliar.**
+Esta proposta futura para o fluxo de Acionamentos do NOC funcionaria conforme o fluxo da Figura 1.  **Clique na Figura para visualizar em tamanho original e ampliar.**
 
 ![NOC  - Copy Diagram](https://user-images.githubusercontent.com/10197871/106390820-0e095100-63c9-11eb-88c0-a932d585c1d9.png)
-Figura 3: Proposta de Futuro Fluxo de Acionamentos do NOC.
+Figura 1: Proposta de Futuro Fluxo de Acionamentos do NOC.
 
 
 <h3>Problemas 2:</h3>
