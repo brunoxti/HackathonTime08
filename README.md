@@ -128,17 +128,30 @@ A IA também pode ser treinada para avaliar as relação entre múltiplos incide
 
 <h1>Referências:</h1>
 
-Medium - https://medium.com/revista-tspi/testes-sint%C3%A9ticos-3fd1be96d745
-Hipsters.Tech - Testes sintéticos no C6 Bank;
-Flávia Falé e Serge Gebhardt - Synthetic Monitoring;
-CloudQA - What is Synthetic Testing? ;
-Freyja |Raygun - What is Synthetic Testing? A definition and how it compares to Real User Monitoring;
-Pingdom - Synthetinc Testing;
-PerformanceLab - Synthetinc Testing;
-Dynatrace - Synthetic Monitoring;
-Sematext - Get Started With Synthetic Monitoring;
-Sematext - Real user Monitoring versus Synthetic Monitoring;
-SmartBear - What is Synthetic Monitoring;
-CatchPoint - The Future of Synthetic Testing is Everything from Everywhere;
-Ankush Thakur - 11 Synthetic Monitoring Tools for Your Online Business;
+Medium - https://medium.com/revista-tspi/testes-sint%C3%A9ticos-3fd1be96d745.
+
+Hipsters.Tech - Testes sintéticos no C6 Bank.
+
+Flávia Falé e Serge Gebhardt - Synthetic Monitoring.
+
+CloudQA - What is Synthetic Testing?.
+
+Freyja |Raygun - What is Synthetic Testing? A definition and how it compares to Real User Monitoring.
+
+Pingdom - Synthetinc Testing.
+
+PerformanceLab - Synthetinc Testing.
+
+Dynatrace - Synthetic Monitoring.
+
+Sematext - Get Started With Synthetic Monitoring.
+
+Sematext - Real user Monitoring versus Synthetic Monitoring.
+
+SmartBear - What is Synthetic Monitoring.
+
+CatchPoint - The Future of Synthetic Testing is Everything from Everywhere.
+
+Ankush Thakur - 11 Synthetic Monitoring Tools for Your Online Business.
+
 Rigor - 5 Must-Have Features of Top Synthetic Monitoring Tools.
