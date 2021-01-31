@@ -28,14 +28,14 @@ Vários tipos de scripts podem ser criados, em diferentes camadas da aplicação
 
 Para a solução que aqui propomos, pretendemos executar os testes para os incidentes com cobertura destes testes, e com isso verificar se realmente estes incidentes/alertas são verdadeiros, para neste processo identificar os falsos positivos. Pretendemos inicialmente tratar o problema dos falsos positivos neste MVP, e para isso a IA tem a função de avisar sobre os incidentes falsos positivos  no Microsoft Teams  (ferramenta de comunicação da empresa) para o fechamento deste. Optamos por utilizar uma IA, pois esta pode ser treinada para escolher os testes que possuem maior relação com o incidente e priorizar a execução destes testes, tornando assim o retorno mais rápido sobre este incidentes realmente ter ocorrido A IA fica “ouvindo” alertas do Zabbix, e quando um alerta aparece, ela através de um treinamento prévio* e uma base com os testes sintéticos calcula o rating de cada teste em relação aquele alerta e seleciona os 3 testes mais apropriados em paralelo para verificar se o alerta é falso, cada teste sintético é um teste end-to-end de um fluxo de negócio utilizando puppeteer** (tecnologia utilizada para realizar os testes sintéticos) ou seja é como se fosse um cliente real, acessando a aplicação e realizando um fluxo de negócio que passa pelo código onde o alerta está acusando. O teste além de ser executado ele é gravado em vídeo e enviado no Teams como evidência. Caso os testes funcionem com sucesso o alerta é considerado falso positivo, ele é eliminado através de um Ack no Zaabix e também uma mensagem é enviada via chat bot do Teams, junto com o vídeo. A Figura 01, apresenta um exemplo de mensagem enviada para o Teams sobre a ocorrência de um incidente falso positivo. Segue exemplo na Figura 02, que apresenta o alerta referente à verificação da funcionalidade de assinatura eletrônica do cliente. Esta assinatura é solicitada em vários fluxos.  
 
-O treinamento prévio da IA para este MVP foi implementado utilizando um arquivo .csv, contendo um rating de 0 À 100, relativo à efetividade de um teste sintético para verificar este alerta e o teste sintético. A IA será treinada com a simulação dos principais problemas, constantemente. Em casos onde a taxa de efetividade desta for abaixo de 90%, a IA irá executar todos os testes sintéticos para encontrar uma relação com o alerta e melhorar a taxa, em um processo de retreinamento. A Figura 3 apresenta um exemplo do arquivo de treinamento. 
+O treinamento prévio da IA para este MVP foi implementado utilizando um arquivo .csv, contendo um rating de 0 À 100, relativo à efetividade de um teste sintético para verificar este alerta e o teste sintético. A IA será treinada com a simulação dos principais problemas, constantemente. Em casos onde a taxa de efetividade desta for abaixo de 90%, a IA irá executar todos os testes sintéticos para encontrar uma relação com o alerta e melhorar a taxa, em um processo de retreinamento. A Figura 2 apresenta um exemplo do arquivo de treinamento.  
+
+Segue um exemplo de alerta para o fluxo da assinatura eletrônica: 
+**Appdynamics_PRD_Clear.Security.API HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/ValidateSignature**
 
 ![image001](https://user-images.githubusercontent.com/10197871/106390059-5de61900-63c5-11eb-845a-93f754f7323e.jpg)
 Figura 01:  Exemplo de mensagem enviada para o Teams diante a ocorrência de um falso positivo. 
 
-Appdynamics_PRD_Clear.Security.API HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/ValidateSignature
-Figura 2: Exemplo de alerta para o fluxo da assinatura eletrônica.
-
-
-Figura 3: Exemplo do arquivo de treinamento.
+![image002](https://user-images.githubusercontent.com/10197871/106390194-f67c9900-63c5-11eb-841e-58932dce68bd.jpg)
+Figura 2: Exemplo do arquivo de treinamento.
 
