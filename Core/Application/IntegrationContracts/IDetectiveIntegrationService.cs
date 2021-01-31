@@ -6,6 +6,6 @@ namespace Core.Application.IntegrationContracts
 {
     public interface IDetectiveIntegrationService
     {
-        Task<DetectiveResponseDto> ExecuteSyntheticTest(Guid testId);
+        Task<DetectiveResponseDto> ExecuteSyntheticTest(string testId);
     }
 }

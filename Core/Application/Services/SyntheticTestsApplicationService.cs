@@ -38,7 +38,7 @@ namespace Core.Application.Services
 
             //await _botApplicationService.NotifyAsync(default);
 
-            var response = await _detectiveIntegrationService.ExecuteSyntheticTest(Guid.NewGuid());
+            var response = await _detectiveIntegrationService.ExecuteSyntheticTest("600210fc87d69a0020e10aec");
 
             var nocAlert = new Result
             {
