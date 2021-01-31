@@ -14,7 +14,7 @@
 
 <h1>Proposta:</h1> 
 
-Hoje são gerados 100.000 incidentes por mês para serem tratados pela Squad do NOC, área de monitoramento de infraestrutura de TI da XP Inc. Sendo que aproximadamente 20% em média são falsos positivos.
+Hoje são gerados 100.000 incidentes por mês para serem tratados pela Squad do NOC, área de monitoramento de infraestrutura de TI da XP Inc. Sendo que aproximadamente 20% em média são falsos positivos. O público alvo da solução a seguir é o time do NOC, mas esta pode secundariamente atingir os times de desenvolvimento. E, com a evolução proposta nos trabalhos futuros, deve certamente agregar valor ao trabalho dos times de desenvolvimento no processo de tratativa de incidentes. 
 
 <h2>Problema:</h2> 
   <ul>
