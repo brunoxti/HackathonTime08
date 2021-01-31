@@ -49,7 +49,7 @@ Não será necessário a compra de novas ferramentas de mercado. A IA utilizada 
 Este MVP abre caminho para avaliar o uso dos testes sintéticos para analise de problemas em Produção. Este viabilizou a analise de viabilidade de abordagens mais completas do que este MVP que acreditamos serem viáveis, efetivas e podem melhorar o monitoramento e tratativa dos problemas em Produção. Estas propostas de evolução são apresentadas nos trabalhos futuros apresentados a seguir.
 
 <h2>Hipótese 1:</h2>  
-Nossa hipótese para o MVP é:
+**Nossa hipótese para o MVP é:**
 O uso de testes sintéticos pode verificar inconsistências em produção e seria importante para diminuir o VOLUME de incidentes/alertas falsos positivos abertos ao realizar uma verificação da ocorrência através de uma IA. 
 
 A IA dispara automaticamente este teste sintético, eliminando a interação humana e diminuindo a carga de trabalho e TEMPO de resposta aos Incidentes. Pois caso seja um alerta falso, a IA fecharia estes incidentes acarretando menos incidentes abertos e zero interações humanas sobre os incidentes falsos positivos cobertos pelos testes sintéticos.
@@ -58,6 +58,24 @@ A IA dispara automaticamente este teste sintético, eliminando a interação hum
 
 **O principal objetivo do MVP é:**
  	Diminuir o volume de alertas abertos através da verificação realizada pela IA, eliminando os alertas Falsos Negativos. 
+	
 **O objetivo secundário do MVP é:**
 	Validar o uso de testes sintéticos pensando em trabalhos futuros, evolução do MVP, que pode ter uma cobertura mais abrangente e tratar muitos outros problemas segundo hipóteses apresentadas nos trabalhos futuros. 
+	
+<h2>Solução Técnica:<\h2>
+ A Solução envolve algumas funcionalidades que serão descritas a seguir.
+
+<h3>Criação dos testes Sintéticos.<\h3>
+	
+<h3>Treinamento da IA para realizar os testes Sintético<\h3>
+
+<h3>Integrar a IA com o Teams para envio de Comunicação<\h3>
+
+<h3>Formalizar pelo Teams  sobre o fechamento de Incidentes Falsos Positivos<\h3>
+   OBS: Alertas Verdadeiros serão verificados, mas não serão respondidos, inicialmente.
+
+<h3>Formalizar o teste através do vídeo com evidência, enviados junto com a mensagem do Teams.<\h3> 
+
+
+
 
