@@ -1,7 +1,7 @@
 # HackathonTime08
 
 
-<h1>Título:</h1> Uma solução para detecção e tratativa de problemas em produção focada na perspectiva do cliente final
+<h1>Título: Uma solução para detecção e tratativa de problemas em produção focada na perspectiva do cliente final</h1>
 
 <h1>Equipe:</h1>
 
