@@ -29,6 +29,7 @@ namespace Core
             services.AddTransient<IBotIntegrationService, BotIntegrationService>();
             services.AddTransient<IZabbixIntegrationService, ZabbixIntegrationService>();
             services.AddTransient<ISyntheticWorkerIntegrationService, SyntheticWorkerIntegrationService>();
+            services.AddTransient<IDetectiveIntegrationService, DetectiveIntegrationService>();
         }
     }
 }

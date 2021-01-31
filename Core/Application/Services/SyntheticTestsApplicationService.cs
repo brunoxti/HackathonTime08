@@ -20,18 +20,20 @@ namespace Core.Application.Services
         private readonly IBotIntegrationService _botApplicationService;
         private readonly ISyntheticWorkerIntegrationService _syntheticWorkerApplicationService;
         private readonly IZabbixIntegrationService _zabbixIntegratorApplicationService;
+        private readonly IDetectiveIntegrationService _detectiveIntegrationService;
 
-        public SyntheticTestsApplicationService(ApplicationContext applicationContext, IBotIntegrationService botApplicationService, ISyntheticWorkerIntegrationService syntheticWorkerApplicationService, IZabbixIntegrationService zabbixIntegratorApplicationService)
+        public SyntheticTestsApplicationService(IBotIntegrationService botApplicationService, ISyntheticWorkerIntegrationService syntheticWorkerApplicationService, IZabbixIntegrationService zabbixIntegratorApplicationService, IDetectiveIntegrationService detectiveIntegrationService)
         {
-            _applicationContext = applicationContext;
             _botApplicationService = botApplicationService;
             _syntheticWorkerApplicationService = syntheticWorkerApplicationService;
             _zabbixIntegratorApplicationService = zabbixIntegratorApplicationService;
+            _detectiveIntegrationService = detectiveIntegrationService;
         }
 
         public async Task ExecuteAsync()
         {
             //await _botApplicationService.NotifyAsync(default);
+            await _detectiveIntegrationService.ExecuteSyntheticTest();
             await _syntheticWorkerApplicationService.StartSyntheticTest(string.Empty);
             await _zabbixIntegratorApplicationService.AckAlert(default);
 
