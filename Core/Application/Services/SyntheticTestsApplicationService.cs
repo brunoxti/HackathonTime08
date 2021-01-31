@@ -45,13 +45,13 @@ namespace Core.Application.Services
             await _syntheticWorkerApplicationService.StartSyntheticTest(string.Empty);
             
 
-            var nocAlert = new 
+            var nocAlert = new Result
             {
-                Host = "Appdynamics_PRD_Clear.Security.API",
-                Description = "HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/ValidateSignature"
+                opdata = "Appdynamics_PRD_Clear.Security.API",
+                name = "HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/ValidateSignature"
             };
 
-            Console.WriteLine($"\n ALERT: {nocAlert.Host} - {nocAlert.Description}");
+            Console.WriteLine($"\n ALERT: {nocAlert.opdata} - {nocAlert.name}");
 
             var sintheticTests = _applicationContext.SyntheticTests.ToList();
 
@@ -59,7 +59,7 @@ namespace Core.Application.Services
             {
                 var input = new ArtificialIntelligenceInput()
                 {
-                    Alert_noc = $"{nocAlert.Host} {nocAlert.Description}",
+                    Alert_noc = $"{nocAlert.opdata} {nocAlert.name}",
                     Recomended_synthetic_test = test.Description,
                 };
 
