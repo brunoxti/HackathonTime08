@@ -31,11 +31,19 @@ namespace Core.Application.Services
 
         public async Task ExecuteAsync()
         {
+
+            Console.Write("Enter AlertId: ");
+            var val = Console.ReadLine();
+            Console.WriteLine("Your input: {0}", val);
+
+            await _zabbixIntegratorApplicationService.WorkerAlert(val);
+
+
             //await _botApplicationService.NotifyAsync(default);
             await _syntheticWorkerApplicationService.StartSyntheticTest(string.Empty);
-            await _zabbixIntegratorApplicationService.AckAlert(default);
+            
 
-            var nocAlert = new NocAlert()
+            var nocAlert = new 
             {
                 Host = "Appdynamics_PRD_Clear.Security.API",
                 Description = "HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/ValidateSignature"
