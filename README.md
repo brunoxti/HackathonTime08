@@ -30,6 +30,7 @@ Para a solução que aqui propomos, pretendemos executar os testes para os incid
 
 O treinamento prévio da IA para este MVP foi implementado utilizando um arquivo .csv, contendo um rating de 0 À 100, relativo à efetividade de um teste sintético para verificar este alerta e o teste sintético. A IA será treinada com a simulação dos principais problemas, constantemente. Em casos onde a taxa de efetividade desta for abaixo de 90%, a IA irá executar todos os testes sintéticos para encontrar uma relação com o alerta e melhorar a taxa, em um processo de retreinamento. A Figura 2 apresenta um exemplo do arquivo de treinamento.  
 
+
 Segue um exemplo de alerta para o fluxo da assinatura eletrônica: 
 **Appdynamics_PRD_Clear.Security.API HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/ValidateSignature**
 
@@ -74,9 +75,9 @@ A IA dispara automaticamente este teste sintético, eliminando a interação hum
 
 5. **Formalizar pelo Teams  sobre o fechamento de Incidentes Falsos Positivos**
 
-   OBS: Alertas Verdadeiros serão verificados, mas não serão respondidos, inicialmente.
+   OBS: Alertas Verdadeiros serão verificados, mas não serão respondidos, inicialmente. Lembrando que a IA já realizou os testes na plataforma, facilitando muito a análise humana.
 
-6. **Formalizar o teste através do vídeo com evidência, enviados junto com a mensagem do Teams.**
+6. **Formalizar o teste através do vídeo com evidências, enviados junto com a mensagem do Teams.**
 
 
 <h2>Melhorias Futuras:</h2>
