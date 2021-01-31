@@ -35,8 +35,8 @@ namespace Core.Application.Services
             Console.WriteLine("Your input: {0}", eventId);
 
             //await _botApplicationService.NotifyAsync(default);
-            await _zabbixIntegratorApplicationService.WorkerAlert(eventId);
-            var response = await _detectiveIntegrationService.ExecuteSyntheticTest(Guid.NewGuid());
+
+            var response = await _detectiveIntegrationService.ExecuteSyntheticTest("600210fc87d69a0020e10aec");
 
             var nocAlert = new Result
             {

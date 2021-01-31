@@ -20,14 +20,16 @@ namespace Core.Infrastructure.Services
             _clientFactory = clientFactory;
         }
 
-        public async Task<DetectiveResponseDto> ExecuteSyntheticTest(Guid testId)
+        public async Task<DetectiveResponseDto> ExecuteSyntheticTest(string testId)
         {
-            var uri = new Uri($"http://localhost:3000/test");
+            var uri = new Uri($"http://localhost:3000/test-flow");
 
             var client = _clientFactory.CreateClient();
 
-            JObject data = JObject.Parse(File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"JsonDetectiveRequest.json")));
-            var response = await client.PostAsync(uri, new StringContent(data.ToString(), Encoding.UTF8, "application/json"));
+            //JObject data = JObject.Parse(File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"JsonDetectiveRequest.json")));
+
+            var json = JsonSerializer.Serialize(new DetectiveRequestDto { Id = testId });
+            var response = await client.PostAsync(uri, new StringContent(json, Encoding.UTF8, "application/json"));
 
             if (response.IsSuccessStatusCode)
             {
