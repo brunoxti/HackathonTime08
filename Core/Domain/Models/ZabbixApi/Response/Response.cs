@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Core.Domain.Models
+namespace Core.Domain.Models.ZabbixApi.Response
 {
-    public class NocAlert
+    public class Response
     {
         public string jsonrpc { get; set; }
-        public List<Result> result { get; set; }
+        public string result { get; set; }
         public int id { get; set; }
     }
 
@@ -34,5 +36,24 @@ namespace Core.Domain.Models
         public string opdata { get; set; }
         public string suppressed { get; set; }
         public List<Url> urls { get; set; }
+    }
+
+    public class EventResponse
+    {
+        public string jsonrpc { get; set; }
+        public List<Result> result { get; set; }
+        public int id { get; set; }
+    }
+
+    public class AckResult
+    {
+        public List<int> eventids { get; set; }
+    }
+
+    public class AckResponse
+    {
+        public string jsonrpc { get; set; }
+        public AckResult result { get; set; }
+        public int id { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace Core.Infrastructure.Services
             _clientFactory = clientFactory;
         }
 
-        public async Task ExecuteSyntheticTest()
+        public async Task ExecuteSyntheticTest(Guid testId)
         {
             var uri = new Uri($"http://localhost:3000/test");
 

@@ -4,6 +4,7 @@ using Core.Application.Services;
 using Core.Infrastructure.Context;
 using Core.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Core
@@ -24,6 +25,7 @@ namespace Core
 
         private static void ConfigureServices(this IServiceCollection services)
         {
+            services.AddSingleton<IConfiguration>(new ConfigurationBuilder().Build());
             services.AddHttpClient();
             services.AddTransient<ISyntheticTestsApplicationService, SyntheticTestsApplicationService>();
             services.AddTransient<IBotIntegrationService, BotIntegrationService>();
