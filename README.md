@@ -94,7 +94,51 @@ Outra melhoria possível seria os desenvolvedores receberem feedback rápido a r
 6. Interação com o Taylor para fechamento de incidentes;
 7. Interface para criação dos testes;
 
-Esta proposta futura para o fluxo de Acionamentos do NOC funcionaria conforme o fluxo da Figura 3. 
+Esta proposta futura para o fluxo de Acionamentos do NOC funcionaria conforme o fluxo da Figura 3.  **Clique na Figura para visualizar em tamanho original e ampliar.**
 
 ![NOC  - Copy Diagram](https://user-images.githubusercontent.com/10197871/106390820-0e095100-63c9-11eb-88c0-a932d585c1d9.png)
 Figura 3: Proposta de Futuro Fluxo de Acionamentos do NOC.
+
+
+<h3>Problemas 2:</h3>
+1. TEMPO de Acionamento 
+2. TEMPO de Resposta da Tratativa  
+
+<h3>Hipótese 2:</h3>  
+
+TESTES SINTÉTICOS podem retornar os erros e abrir incidentes com maior rapidez do que a percepção humana e fluxo de retorno do processo para as inconsistências em produção. A fim de melhorar o TEMPO de resposta e tratar automaticamente vários cenários.  É possível implementar esta solução para monitoria dos sistemas e topologias. 
+
+<h3>Hipótese 3:</h3>
+
+Os testes sintéticos podem  ser utilizados em conjunto com técnicas de engenharia reversa, no caso a Análise Dinâmica dos problemas, coletando rastros que identificam possíveis pontos no código envolvidos com o problema, podendo assim dar um direcionamento ao Desenvolvedor sobre quais pontos merecem atenção na tratativa, podendo tornar o processo de correção mais rápido e assertivo. 
+
+<h3>Hipotese 4:</h3> 
+
+A IA pode ser treinada pra conseguir priorizar os itens mais graves. Hoje a priorização é feita pelo índice P1 e P2 e o  tempo de acionamento. A IA poder executar os testes para  identificar o erro e  seu real impacto e com isso os priorizar melhor, considerando o impacto desta pelo que foi realmente testado e não apenas reportado. 
+
+<h3>Hipotese 5:</h3>
+
+A IA também pode ser treinada para avaliar as relação entre múltiplos incidentes com causa semelhante reportados no mesmo dia, pois ao executar os testes, poderia verificar o mesmo ponto de erro e agrupar os incidentes para serem priorizados devido ao impacto. Facilitando assim o direcionamento da tratativa. 
+
+
+<h3>Objetivos:</h3>
+
+1. Atuar no fluxo como processo de monitoria de forma à tentar retornar os erros com maior rapidez do que o realizado por humanos. 
+2. Fornecer informações importantes sobre os pontos (cenários de teste) em que ocorreram os erros, visando auxiliar na priorização e no direcionamento do trabalho de correção.
+
+<h1>Referências:</h1>
+
+Medium - https://medium.com/revista-tspi/testes-sint%C3%A9ticos-3fd1be96d745
+Hipsters.Tech - Testes sintéticos no C6 Bank;
+Flávia Falé e Serge Gebhardt - Synthetic Monitoring;
+CloudQA - What is Synthetic Testing? ;
+Freyja |Raygun - What is Synthetic Testing? A definition and how it compares to Real User Monitoring;
+Pingdom - Synthetinc Testing;
+PerformanceLab - Synthetinc Testing;
+Dynatrace - Synthetic Monitoring;
+Sematext - Get Started With Synthetic Monitoring;
+Sematext - Real user Monitoring versus Synthetic Monitoring;
+SmartBear - What is Synthetic Monitoring;
+CatchPoint - The Future of Synthetic Testing is Everything from Everywhere;
+Ankush Thakur - 11 Synthetic Monitoring Tools for Your Online Business;
+Rigor - 5 Must-Have Features of Top Synthetic Monitoring Tools.
