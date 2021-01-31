@@ -50,7 +50,9 @@ Não será necessário a compra de novas ferramentas de mercado. A IA utilizada 
 Este MVP abre caminho para avaliar o uso dos testes sintéticos para analise de problemas em Produção. Este viabilizou a analise de viabilidade de abordagens mais completas do que este MVP que acreditamos serem viáveis, efetivas e podem melhorar o monitoramento e tratativa dos problemas em Produção. Estas propostas de evolução são apresentadas nos trabalhos futuros apresentados a seguir.
 
 <h2>Hipótese 1:</h2>  
+
 **Nossa hipótese para o MVP é:**
+
 O uso de testes sintéticos pode verificar inconsistências em produção e seria importante para diminuir o VOLUME de incidentes/alertas falsos positivos abertos ao realizar uma verificação da ocorrência através de uma IA. 
 
 A IA dispara automaticamente este teste sintético, eliminando a interação humana e diminuindo a carga de trabalho e TEMPO de resposta aos Incidentes. Pois caso seja um alerta falso, a IA fecharia estes incidentes acarretando menos incidentes abertos e zero interações humanas sobre os incidentes falsos positivos cobertos pelos testes sintéticos.
