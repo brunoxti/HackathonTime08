@@ -62,19 +62,19 @@ A IA dispara automaticamente este teste sintético, eliminando a interação hum
 **O objetivo secundário do MVP é:**
 	Validar o uso de testes sintéticos pensando em trabalhos futuros, evolução do MVP, que pode ter uma cobertura mais abrangente e tratar muitos outros problemas segundo hipóteses apresentadas nos trabalhos futuros. 
 	
-<h2>Solução Técnica:<\h2>
- A Solução envolve algumas funcionalidades que serão descritas a seguir.
+<h2>Solução Técnica:</h2>
+**A Solução envolve algumas funcionalidades que serão descritas a seguir.**
 
-<h3>Criação dos testes Sintéticos.<\h3>
+**Criação dos testes Sintéticos.**
 	
-<h3>Treinamento da IA para realizar os testes Sintético<\h3>
+**Treinamento da IA para realizar os testes Sintético**
 
-<h3>Integrar a IA com o Teams para envio de Comunicação<\h3>
+**Integrar a IA com o Teams para envio de Comunicação**
 
-<h3>Formalizar pelo Teams  sobre o fechamento de Incidentes Falsos Positivos<\h3>
+**Formalizar pelo Teams  sobre o fechamento de Incidentes Falsos Positivos**
    OBS: Alertas Verdadeiros serão verificados, mas não serão respondidos, inicialmente.
 
-<h3>Formalizar o teste através do vídeo com evidência, enviados junto com a mensagem do Teams.<\h3> 
+**Formalizar o teste através do vídeo com evidência, enviados junto com a mensagem do Teams.**
 
 
 
