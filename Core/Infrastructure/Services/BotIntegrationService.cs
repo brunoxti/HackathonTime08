@@ -19,7 +19,6 @@ namespace Core.Infrastructure.Services
             _clientFactory = clientFactory;
         }
 
-
         public async Task NotifyAsync(Result alert, IEnumerable<SyntheticTestResult> enumerable)
         {
             var uri = new Uri(url);
@@ -29,27 +28,22 @@ namespace Core.Infrastructure.Services
             var content = string.Empty;
             using (StreamReader r = new StreamReader("resources\\teams-message.json"))
             {
-                    content = content.Replace("{alert_host}", alert.eventid);
-                    content = content.Replace("{alert_description}", alert.name);
-                    content = content.Replace("{due_date}", DateTime.Now.ToString());
-                    content = content.Replace("{url_video}", "");
+                content = content.Replace("{alert_host}", alert.eventid);
+                content = content.Replace("{alert_description}", alert.name);
+                content = content.Replace("{due_date}", DateTime.Now.ToString());
+                content = content.Replace("{url_video}", "");
 
-                    // Perform Connector POST operation     
-                    var httpResponseMessage = await client.PostAsync(url, new StringContent(content));
-                    // Read response content
-                    var responseContent = await httpResponseMessage.Content.ReadAsStringAsync();
-                    if (responseContent.Contains("Microsoft Teams endpoint returned HTTP error 429"))
-                    {
-                        // initiate retry logic
-                    }
-                
+                // Perform Connector POST operation     
+                var httpResponseMessage = await client.PostAsync(url, new StringContent(content));
+                // Read response content
+                var responseContent = await httpResponseMessage.Content.ReadAsStringAsync();
+                if (responseContent.Contains("Microsoft Teams endpoint returned HTTP error 429"))
+                {
+                    // initiate retry logic
+                }
+
                 content = r.ReadToEnd();
             }
-
-            content = content.Replace("{alert_host}", alert.opdata);
-            content = content.Replace("{alert_description}", alert.name);
-            content = content.Replace("{due_date}", DateTime.Now.ToString());
-            content = content.Replace("{url_video}", "");
 
             var response = await client.PostAsync(uri, new StringContent(content));
 
