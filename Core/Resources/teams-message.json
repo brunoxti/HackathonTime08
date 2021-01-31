@@ -1,3 +1,4 @@
+{
   "@type": "MessageCard",
   "@context": "http://schema.org/extensions",
   "themeColor": "0076D7",
@@ -5,7 +6,7 @@
   "sections": [
     {
       "activityTitle": "Unreal Noc detectou um falso positivo",
-      "activitySubtitle": "Unreal Noc",      
+      "activitySubtitle": "Unreal Noc",
       "facts": [
         {
           "name": "Host",

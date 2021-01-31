@@ -24,10 +24,10 @@ namespace Core.Infrastructure.Context
         {
             modelBuilder.Entity<SyntheticTest>()
                 .HasData(
-                    new { Id = 1, Description = "envio-ordem-clear-pro" },
-                    new { Id = 2, Description = "retirada-clear-pro" },
-                    new { Id = 3, Description = "alteracao-dados-clear-pro" },
-                    new { Id = 4, Description = "login-clear-pro" }
+                    new SyntheticTest { Id = 1, Description = "envio-ordem-clear-pro", DetectiveTestId = "" },
+                    new SyntheticTest { Id = 2, Description = "retirada-clear-pro", DetectiveTestId = "" },
+                    new SyntheticTest { Id = 3, Description = "alteracao-dados-clear-pro", DetectiveTestId = "" },
+                    new SyntheticTest { Id = 4, Description = "login-clear-pro", DetectiveTestId = "600211ea87d69a0020e10aed" }
                 );
 
             modelBuilder.Entity<MLTraining>()

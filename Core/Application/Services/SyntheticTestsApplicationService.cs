@@ -21,33 +21,57 @@ namespace Core.Application.Services
         private readonly IZabbixIntegrationService _zabbixIntegratorApplicationService;
         private readonly IDetectiveIntegrationService _detectiveIntegrationService;
 
-        public SyntheticTestsApplicationService(IBotIntegrationService botApplicationService, IZabbixIntegrationService zabbixIntegratorApplicationService, IDetectiveIntegrationService detectiveIntegrationService)
+        public SyntheticTestsApplicationService(IBotIntegrationService botApplicationService,
+            IZabbixIntegrationService zabbixIntegratorApplicationService,
+            IDetectiveIntegrationService detectiveIntegrationService,
+            ApplicationContext applicationContext)
         {
             _botApplicationService = botApplicationService;
             _zabbixIntegratorApplicationService = zabbixIntegratorApplicationService;
             _detectiveIntegrationService = detectiveIntegrationService;
+            _applicationContext = applicationContext;
         }
 
-        public async Task ExecuteAsync(string alert)
+        public async Task ExecuteAsync()
         {
-            Console.Write("Enter AlertId: ");
-            var eventId = Console.ReadLine();
-            Console.WriteLine("Your input: {0}", eventId);
 
-            //await _botApplicationService.NotifyAsync(default);
-
-            var response = await _detectiveIntegrationService.ExecuteSyntheticTest("600210fc87d69a0020e10aec");
-
-            var nocAlert = new Result
-            {
-                opdata = "Appdynamics_PRD_Clear.Security.API",
-                name = "HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/ValidateSignature"
-            };
+            //Receive alert from Zabbix            
+            var nocAlert = getNocAlert();
 
             Console.WriteLine($"\n ALERT: {nocAlert.opdata} - {nocAlert.name}");
 
             var sintheticTests = _applicationContext.SyntheticTests.ToList();
 
+            //IA Calculating the score of each synthetic test.
+            SyntheticTest bestTest = FoundBestTest(nocAlert, sintheticTests);
+
+            Console.WriteLine("\n=============== Best test found ===============");
+            Console.WriteLine($"Recomended_synthetic_test: {bestTest.Description} - Rating: {bestTest.Rating}");
+
+            Console.WriteLine("\n=============== Initializing tests ===============");
+            var result = await _detectiveIntegrationService.ExecuteSyntheticTest(bestTest.DetectiveTestId);
+
+            if (result.Status == "success")
+            {
+                Console.WriteLine("\n=============== Sending Teams Notification ===============");
+                await _botApplicationService.NotifyFalsePositiveAsync(nocAlert, bestTest, result.VideoUrl);
+
+                Console.WriteLine("\n=============== Closing alert using Zabbix ===============");
+                await _zabbixIntegratorApplicationService.WorkerAlert(nocAlert.eventid);
+
+            }
+            else if (result.Status == "error" && string.IsNullOrEmpty(result.VideoUrl))
+            {
+                await _botApplicationService.NotifySyntheticTestFailed(nocAlert, bestTest, result.VideoUrl);
+            }
+
+            Console.WriteLine("=============== End of process, hit any key to finish ===============");
+            Console.ReadKey();
+
+        }
+
+        private static SyntheticTest FoundBestTest(Result nocAlert, List<SyntheticTest> sintheticTests)
+        {
             sintheticTests.ForEach(test =>
             {
                 var input = new ArtificialIntelligenceInput()
@@ -62,48 +86,19 @@ namespace Core.Application.Services
 
             });
 
-            List<SyntheticTest> top3recomendedTests = getTop3BestRecommended(sintheticTests);
+            return sintheticTests
+                .OrderByDescending(x => x.Rating).FirstOrDefault();
 
-            Console.WriteLine("\n=============== Top 3 recommended tests ===============");
-
-            top3recomendedTests.ForEach(test =>
-            {
-                Console.WriteLine($"Recomended_synthetic_test: {test.Description} - Rating: {test.Rating}");
-            });
-
-            Console.WriteLine("\n=============== Initializing tests ===============");
-            await _botApplicationService.NotifyAsync(nocAlert, new List<SyntheticTestResult>());
-            //var threads = new List<Task<SyntheticTestResult>>();
-            //top3recomendedTests.ForEach(test =>
-            //{
-            //    threads.Add(Task<SyntheticTestResult>.Run(() => new SyntheticWorker().StartSyntheticTest(test.Description)));
-
-            //});
-
-            //Task.WaitAll(threads.ToArray());
-
-            //if (threads.All(x => x.IsCompletedSuccessfully && x.Result == null))
-            //{
-            //    new ZabbixIntegrator().AckAlert(nocAlert);
-            //    await new BotIntegrator().NotifyAsync(threads.Select(x => x.Result));
-            //}
-
-            //dar ack 
-            //enviar bot
-            Console.WriteLine("=============== End of process, hit any key to finish ===============");
-            Console.ReadKey();
-
-            //realizar ack do alerta no Noc
-            //enviar resultado pro Teams via bot
-
-            
         }
 
-
-        private static List<SyntheticTest> getTop3BestRecommended(List<SyntheticTest> sintheticTests)
+        private Result getNocAlert()
         {
-            return sintheticTests
-                .OrderByDescending(x => x.Rating).Take(3).ToList();
+            return new Result
+            {
+                eventid = "4794660",
+                opdata = "Appdynamics_PRD_Clear.Security.API",
+                name = "HR: Business_Transaction_error_rate_is_much_higher_than_normal | TIER: Clear.Security.API | BT: /Account/Login"
+            };
         }
 
         public static ArtificialIntelligenceOutput Predict(ArtificialIntelligenceInput input)

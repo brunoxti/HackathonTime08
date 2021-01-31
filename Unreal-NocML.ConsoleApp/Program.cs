@@ -17,7 +17,7 @@ namespace UnrealNoc.ConsoleApp
             ConfigureServices();
             ConfigureDatabase();
 
-            _syntheticTestsApplicationService.ExecuteAsync("").Wait();
+            _syntheticTestsApplicationService.ExecuteAsync().Wait();
         }
 
         private static void ConfigureServices()

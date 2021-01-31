@@ -1,11 +1,11 @@
 ﻿using Core.Domain.Models;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Core.Application.IntegrationContracts
 {
     public interface IBotIntegrationService
     {
-        Task NotifyAsync(Result alert, IEnumerable<SyntheticTestResult> enumerable);
+        Task NotifyFalsePositiveAsync(Result alert, SyntheticTest test, string videoUrl);
+        Task NotifySyntheticTestFailed(Result alert, SyntheticTest test, string videoUrl);
     }
 }
