@@ -1,6 +1,10 @@
 ﻿using Core.Application.IntegrationContracts;
+using Newtonsoft.Json.Linq;
 using System;
+using System.IO;
 using System.Net.Http;
+using System.Reflection;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -21,8 +25,8 @@ namespace Core.Infrastructure.Services
 
             var client = _clientFactory.CreateClient();
 
-            var bodyParameters = string.Empty;
-            var response = await client.PostAsync(uri, new StringContent(bodyParameters));
+            JObject data = JObject.Parse(File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"JsonDetectiveRequest.json")));
+            var response = await client.PostAsync(uri, new StringContent(data.ToString(), Encoding.UTF8, "application/json"));
 
             if (response.IsSuccessStatusCode)
             {
