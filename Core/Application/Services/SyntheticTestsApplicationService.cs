@@ -18,32 +18,27 @@ namespace Core.Application.Services
         private readonly ApplicationContext _applicationContext;
 
         private readonly IBotIntegrationService _botApplicationService;
-        private readonly ISyntheticWorkerIntegrationService _syntheticWorkerApplicationService;
         private readonly IZabbixIntegrationService _zabbixIntegratorApplicationService;
         private readonly IDetectiveIntegrationService _detectiveIntegrationService;
 
-        public SyntheticTestsApplicationService(IBotIntegrationService botApplicationService, ISyntheticWorkerIntegrationService syntheticWorkerApplicationService, IZabbixIntegrationService zabbixIntegratorApplicationService, IDetectiveIntegrationService detectiveIntegrationService)
+        public SyntheticTestsApplicationService(IBotIntegrationService botApplicationService, IZabbixIntegrationService zabbixIntegratorApplicationService, IDetectiveIntegrationService detectiveIntegrationService)
         {
             _botApplicationService = botApplicationService;
-            _syntheticWorkerApplicationService = syntheticWorkerApplicationService;
             _zabbixIntegratorApplicationService = zabbixIntegratorApplicationService;
             _detectiveIntegrationService = detectiveIntegrationService;
         }
 
         public async Task ExecuteAsync()
         {
-
             Console.Write("Enter AlertId: ");
             var val = Console.ReadLine();
             Console.WriteLine("Your input: {0}", val);
 
-            await _zabbixIntegratorApplicationService.WorkerAlert(val);
-
+            //await _zabbixIntegratorApplicationService.WorkerAlert(val);
 
             //await _botApplicationService.NotifyAsync(default);
 
-            await _syntheticWorkerApplicationService.StartSyntheticTest(string.Empty);
-            
+            var response = await _detectiveIntegrationService.ExecuteSyntheticTest(Guid.NewGuid());
 
             var nocAlert = new Result
             {

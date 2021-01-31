@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
-
-namespace Core.Domain.Models.ZabbixApi.Request
+﻿namespace Core.Domain.Models.ZabbixApi.Request
 {
     public class LoginRequest
     {

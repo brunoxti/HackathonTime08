@@ -1,10 +1,8 @@
-﻿using System;
+﻿using Core.Application.IntegrationContracts;
+using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Net.Http;
 using System.Text;
-using Core.Application.IntegrationContracts;
-using Core.Domain.Models;
-using Microsoft.AspNetCore.Mvc;
 
 namespace WebApiReceiver.Controllers
 {
@@ -33,6 +31,7 @@ namespace WebApiReceiver.Controllers
             {
                 Content = new StringContent(echo, Encoding.UTF8, "text/plain")
             };
+
             return resp;
         }
     }

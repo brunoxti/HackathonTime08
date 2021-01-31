@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.WebHooks;
+using System;
 using System.Threading.Tasks;
-using Microsoft.AspNet.WebHooks;
 
 namespace WebApiReceiver
 {

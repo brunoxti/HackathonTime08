@@ -1,10 +1,12 @@
-﻿using Core.Application.IntegrationContracts;
+﻿using Core.Application.Dto;
+using Core.Application.IntegrationContracts;
 using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
 using System.Net.Http;
 using System.Reflection;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Core.Infrastructure.Services
@@ -18,7 +20,7 @@ namespace Core.Infrastructure.Services
             _clientFactory = clientFactory;
         }
 
-        public async Task ExecuteSyntheticTest(Guid testId)
+        public async Task<DetectiveResponseDto> ExecuteSyntheticTest(Guid testId)
         {
             var uri = new Uri($"http://localhost:3000/test");
 
@@ -29,8 +31,17 @@ namespace Core.Infrastructure.Services
 
             if (response.IsSuccessStatusCode)
             {
-                var contents = await response.Content.ReadAsStringAsync();
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                };
+
+                return JsonSerializer.Deserialize<DetectiveResponseDto>(jsonResponse, options);
             }
+            else
+                return new DetectiveResponseDto();
         }
     }
 }

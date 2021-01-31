@@ -1,11 +1,10 @@
-using System.Web.Http;
 using Core;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Owin;
+using System.Web.Http;
 
 namespace WebApiReceiver
 {
@@ -59,6 +58,6 @@ namespace WebApiReceiver
             config.InitializeReceiveCustomWebHooks();
         }
 
-        
+
     }
 }
