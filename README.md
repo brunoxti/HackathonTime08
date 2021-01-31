@@ -95,3 +95,6 @@ Outra melhoria possível seria os desenvolvedores receberem feedback rápido a r
 7. Interface para criação dos testes;
 
 Esta proposta futura para o fluxo de Acionamentos do NOC funcionaria conforme o fluxo da Figura 3. 
+
+![NOC  - Copy Diagram](https://user-images.githubusercontent.com/10197871/106390820-0e095100-63c9-11eb-88c0-a932d585c1d9.png)
+Figura 3: Proposta de Futuro Fluxo de Acionamentos do NOC.
