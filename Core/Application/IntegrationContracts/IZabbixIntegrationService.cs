@@ -8,9 +8,10 @@ namespace Core.Application.IntegrationContracts
 
         Task GetAlert(string eventid, string subscriptionKey);
 
-        Task ReceiveAlert(string nocAlert);
+        Task ReceiveAlert(string eventid);
 
+        Task CloseAlert(string eventid, string token);
 
-        Task WorkerAlert(string nocAlert);
+        Task WorkerAlert(string eventid);
     }
 }
