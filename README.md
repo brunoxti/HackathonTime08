@@ -7,19 +7,19 @@ Camadas do Projeto
 
 ### Solution Unreal-Noc.Core 
 
-    ├── Application                     # Camada de aplicação
-        ├──Service					    # Serviços para execução dos testes do com IA
-        ├──Contract                     # Contratos (Interface) da aplicação IA
-        ├──Dto						    # Contratos de requisição para os testes 	
-        ├──IntegrationContracts		    # Contrados (Interfaces) dos serviços de inegração(Testes Sintéticos, Zabbix, BotTeams)
+    ├── Application                       # Camada de aplicação
+        ├──Service			  # Serviços para execução dos testes do com IA
+        ├──Contract                       # Contratos (Interface) da aplicação IA
+        ├──Dto				  # Contratos de requisição para os testes 	
+        ├──IntegrationContracts		  # Contrados (Interfaces) dos serviços de inegração(Testes Sintéticos, Zabbix, BotTeams)
    
 	├──Domain                         # Camada de Dominio/Models (Contratos Request/Response) IA e Zabbix
 
 	├── Infrastructure                # Source files (alternatively `lib` or `app`)
-	├──Configuration               #	Camada de configuração
-	├──Context    				  # Contexto da aplicação estrutura de de aprendizado da IA	
-	├──Map						  # Mapeamentos banco	 
-	├──Services					  # Serviços de integração com os serviços (Zabbix, TEstes Sinteticos, BotTeams)
+	├──Configuration                  # Camada de configuração
+	├──Context    			  # Contexto da aplicação estrutura de de aprendizado da IA	
+	├──Map				  # Mapeamentos banco	 
+	├──Services			  # Serviços de integração com os serviços (Zabbix, TEstes Sinteticos, BotTeams)
    
 	├── Migrations                    # Migrations do bando de dados da IA
 	├── Resources                     # TEmplates json de testes de integração
@@ -38,10 +38,10 @@ Camadas do Projeto
 
 
 	├── ConsoleApp                    # Console Aplication para rodar a aplicação.(Mais facil para apresentação no Hackathon)
-		├──Controllers				  # Controllers  Controller de recebimento de notificação do Zabbix
-		├──appSettings                 # Arquivo de cofiguração
-		├──Program					  # Classe de inicialição
-		├──Starup					  # Classe para configurar serviços por injeção de dependencia.
+		├──Controllers		  # Controllers  Controller de recebimento de notificação do Zabbix
+		├──appSettings            # Arquivo de cofiguração
+		├──Program		  # Classe de inicialição
+		├──Starup		  # Classe para configurar serviços por injeção de dependencia.
    
    
 <h1>Título: Uma solução para detecção e tratativa de problemas em produção focada na perspectiva do cliente final</h1>
@@ -54,16 +54,15 @@ Camadas do Projeto
 4. Ivan Lopes
 5. Edson Costa 
 
-
-<h1>Proposta:</h1> 
-
-Hoje são gerados 100.000 incidentes por mês para serem tratados pela Squad do NOC, área de monitoramento de infraestrutura de TI da XP Inc. Sendo que aproximadamente 20% em média são falsos positivos.
-
-<h2>Problema:</h2> 
+<h2>Problemas:</h2> 
   <ul>
   <li>VOLUME de  Acionamentos é alto, um total de 100k de alertas, sendo aproximadamente 20% de falsos positivos;</li>
   <li>TEMPO  de retorno sobre a necessidade de verificar o acionamento, dado que é uma verificação humana.</li>
 </ul>
+
+<h1>Proposta:</h1> 
+
+Hoje são gerados 100.000 incidentes por mês para serem tratados pela Squad do NOC, área de monitoramento de infraestrutura de TI da XP Inc. Sendo que aproximadamente 20% em média são falsos positivos.
 
 <h2>Solução Técnica:</h2>
 
