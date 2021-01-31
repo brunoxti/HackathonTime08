@@ -17,7 +17,6 @@ namespace Core.Application.Services
         private readonly IConfiguration _configuration;
         private readonly string _baseUrl = "https://opti.xpinc.io/zabbix-hml/api_jsonrpc.php";
 
-
         private List<string> ListAlertActive { get; set; }
 
         public ZabbixIntegrationService(IConfiguration configuration)
