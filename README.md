@@ -1,7 +1,7 @@
 # HackathonTime08
 
 
-Projeto
+### Projeto NocWatcher
 Aplicação com IA que fica ouvindo alertas do Zabbix, e quando um alerta aparece, ela através de um treinamento prévio* e uma base cheia de testes sintéticos calcula o rating de cada teste em relação aquele alerta e seleciona os 3 testes mais apropriados para verificar se o alerta é falso.
 
 Cada teste sintético é um teste end-to-end de um fluxo de negócio utilizando puppeteer** sendo executado fazendo o papel do cliente final real.
@@ -15,7 +15,7 @@ O alerta é fechado caso os testes provem que o alerta é falso, caso contrário
 
 Camadas do Projeto
 
-### Solution Unreal-Noc.Core 
+### Solution NocWatcher.Core 
 
     ├── Application			  # Camada de aplicação
         ├──Service			  # Serviços para execução dos testes do com IA
@@ -37,7 +37,7 @@ Camadas do Projeto
 
 
 
-### Solution Unreal-Noc.ConsoleApp
+### Solution NocWatcher.ConsoleApp
 
 	├── ConsoleApp                    # Console Aplication para rodar a aplicação.(Mais facil para apresentação no Hackathon)
 
