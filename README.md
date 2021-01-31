@@ -7,11 +7,11 @@ Camadas do Projeto
 
 ### Solution Unreal-Noc.Core 
 
-    ├── Application                       # Camada de aplicação
+    ├── Application			  # Camada de aplicação
         ├──Service			  # Serviços para execução dos testes do com IA
-        ├──Contract                       # Contratos (Interface) da aplicação IA
-        ├──Dto				  # Contratos de requisição para os testes 	
-        ├──IntegrationContracts		  # Contrados (Interfaces) dos serviços de inegração(Testes Sintéticos, Zabbix, BotTeams)
+        ├──Contract			  # Contratos (Interface) da aplicação IA
+        ├──Dto			  # Contratos de requisição para os testes 	
+        ├──IntegrationContracts	  # Contrados (Interfaces) dos serviços de inegração(Testes Sintéticos, Zabbix, BotTeams)
    
 	├──Domain                         # Camada de Dominio/Models (Contratos Request/Response) IA e Zabbix
 
