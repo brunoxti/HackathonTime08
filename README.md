@@ -5,43 +5,43 @@ Projeto
 
 Camadas do Projeto
 
-<h1> Solution Unreal-Noc.Core </h1> 
+### Solution Unreal-Noc.Core 
 
-├── Application                   # Camada de aplicação
-   ├──Service					  # Serviços para execução dos testes do com IA
-   ├──Contract                    # Contratos (Interface) da aplicação IA
-   ├──Dto						  # Contratos de requisição para os testes 	
-   ├──IntegrationContracts		  # Contrados (Interfaces) dos serviços de inegração(Testes Sintéticos, Zabbix, BotTeams)
+    ├── Application                     # Camada de aplicação
+        ├──Service					    # Serviços para execução dos testes do com IA
+        ├──Contract                     # Contratos (Interface) da aplicação IA
+        ├──Dto						    # Contratos de requisição para os testes 	
+        ├──IntegrationContracts		    # Contrados (Interfaces) dos serviços de inegração(Testes Sintéticos, Zabbix, BotTeams)
    
-├──Domain                         # Camada de Dominio/Models (Contratos Request/Response) IA e Zabbix
+	├──Domain                         # Camada de Dominio/Models (Contratos Request/Response) IA e Zabbix
 
-├── Infrastructure                # Source files (alternatively `lib` or `app`)
-   ├──Configuration               #	Camada de configuração
-   ├──Context    				  # Contexto da aplicação estrutura de de aprendizado da IA	
-   ├──Map						  # Mapeamentos banco	 
-   ├──Services					  # Serviços de integração com os serviços (Zabbix, TEstes Sinteticos, BotTeams)
+	├── Infrastructure                # Source files (alternatively `lib` or `app`)
+	├──Configuration               #	Camada de configuração
+	├──Context    				  # Contexto da aplicação estrutura de de aprendizado da IA	
+	├──Map						  # Mapeamentos banco	 
+	├──Services					  # Serviços de integração com os serviços (Zabbix, TEstes Sinteticos, BotTeams)
    
-├── Migrations                    # Migrations do bando de dados da IA
-├── Resources                     # TEmplates json de testes de integração
+	├── Migrations                    # Migrations do bando de dados da IA
+	├── Resources                     # TEmplates json de testes de integração
 
 
 
 
-<h1> Solution Unreal-Noc.ConsoleApp </h1> 
+### Solution Unreal-Noc.ConsoleApp
 
-├── ConsoleApp                    # Console Aplication para rodar a aplicação.(Mais facil para apresentação no Hackathon)
-
-
+	├── ConsoleApp                    # Console Aplication para rodar a aplicação.(Mais facil para apresentação no Hackathon)
 
 
-<h1> Solution Unreal-Noc.WebApiReceiver </h1> 
 
 
-├── ConsoleApp                    # Console Aplication para rodar a aplicação.(Mais facil para apresentação no Hackathon)
-   ├──Controllers				  # Controllers  Controller de recebimento de notificação do Zabbix
-   ├──appSettings                 # Arquivo de cofiguração
-   ├──Program					  # Classe de inicialição
-   ├──Starup					  # Classe para configurar serviços por injeção de dependencia.
+### Solution Unreal-Noc.WebApiReceiver
+
+
+	├── ConsoleApp                    # Console Aplication para rodar a aplicação.(Mais facil para apresentação no Hackathon)
+		├──Controllers				  # Controllers  Controller de recebimento de notificação do Zabbix
+		├──appSettings                 # Arquivo de cofiguração
+		├──Program					  # Classe de inicialição
+		├──Starup					  # Classe para configurar serviços por injeção de dependencia.
    
    
 <h1>Título: Uma solução para detecção e tratativa de problemas em produção focada na perspectiva do cliente final</h1>
