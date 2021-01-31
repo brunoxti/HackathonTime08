@@ -148,6 +148,9 @@ namespace Core.Application.Services
             }
 
             Console.WriteLine("=============== Receive alerts Complete===============");
+
+            Task.FromResult(WorkerAlert(results.result[0].eventid));
+
             return Task.CompletedTask;
         }
 

@@ -4,6 +4,6 @@ namespace Core.Application.Contract
 {
     public interface ISyntheticTestsApplicationService
     {
-        Task ExecuteAsync();
+        Task ExecuteAsync(string alert);
     }
 }

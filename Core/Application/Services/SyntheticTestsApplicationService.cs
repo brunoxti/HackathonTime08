@@ -28,16 +28,14 @@ namespace Core.Application.Services
             _detectiveIntegrationService = detectiveIntegrationService;
         }
 
-        public async Task ExecuteAsync()
+        public async Task ExecuteAsync(string alert)
         {
             Console.Write("Enter AlertId: ");
-            var val = Console.ReadLine();
-            Console.WriteLine("Your input: {0}", val);
-
-            
+            var eventId = Console.ReadLine();
+            Console.WriteLine("Your input: {0}", eventId);
 
             //await _botApplicationService.NotifyAsync(default);
-
+            await _zabbixIntegratorApplicationService.WorkerAlert(eventId);
             var response = await _detectiveIntegrationService.ExecuteSyntheticTest(Guid.NewGuid());
 
             var nocAlert = new Result
@@ -98,7 +96,7 @@ namespace Core.Application.Services
             //realizar ack do alerta no Noc
             //enviar resultado pro Teams via bot
 
-            await _zabbixIntegratorApplicationService.WorkerAlert(val);
+            
         }
 
 
