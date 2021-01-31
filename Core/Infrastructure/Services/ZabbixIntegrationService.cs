@@ -17,7 +17,6 @@ namespace Core.Application.Services
         private readonly IConfiguration _configuration;
         private readonly string _baseUrl = "https://opti.xpinc.io/zabbix-hml/api_jsonrpc.php";
 
-
         private List<string> ListAlertActive { get; set; }
 
         public ZabbixIntegrationService(IConfiguration configuration)
@@ -28,6 +27,7 @@ namespace Core.Application.Services
 
         public async Task GetAlert(string eventid, string token)
         {
+            Console.WriteLine("=============== Geting alerts ===============");
             try
             {
                 using (var _client = new HttpClient())
@@ -52,7 +52,7 @@ namespace Core.Application.Services
 
                                 ListAlertActive.Add(alert.eventid);
 
-                                Console.WriteLine("=============== Alerts is Running Eventid {0}  ===============", alert);
+                                Console.WriteLine("=============== Alerts is Running Eventid {0}  ===============", alert.eventid);
                             }
                         }
                     }
@@ -62,11 +62,12 @@ namespace Core.Application.Services
             {
 
             }
-            Console.WriteLine("=============== End of process, hit any key to finish ===============");
+            Console.WriteLine("=============== End of process, get alerts. ===============");
         }
 
         public async Task AckAlert(string eventid, string token)
         {
+            Console.WriteLine("=============== Starting Acknowledge alerts ===============");
             try
             {
                 using (var _client = new HttpClient())
@@ -84,9 +85,8 @@ namespace Core.Application.Services
                         {
                             foreach (var ackEventId in result.result.eventids)
                             {
-                                ListAlertActive.Remove(ackEventId.ToString());
-                                Console.WriteLine("=============== Acknowledge Eventid {0}  ===============", ackEventId);
-
+                                Console.WriteLine("=============== Acknowledge ok in eventid {0}  ===============", ackEventId);
+                                
                             }
                         }
                     }
@@ -97,11 +97,13 @@ namespace Core.Application.Services
 
             }
 
-            Console.WriteLine("=============== End of process Ack ===============");
+            Console.WriteLine("=============== End of process Acknowledge Success ===============");
         }
 
         public async Task CloseAlert(string eventid, string token)
         {
+            Console.WriteLine("=============== Starting closing alert on Zabbix  ===============");
+
             try
             {
                 using (var _client = new HttpClient())
@@ -119,9 +121,9 @@ namespace Core.Application.Services
                         {
                             foreach (var ackEventId in result.result.eventids)
                             {
+                                Console.WriteLine("=============== Closing alert on Zabbix ok eventId {0}  ===============", ackEventId);
+                                Console.WriteLine("=============== Removing alerts from list. eventId {0}  ===============", ackEventId);
                                 ListAlertActive.Remove(ackEventId.ToString());
-                                Console.WriteLine("=============== Acknowledge eventid {0}  ===============", ackEventId);
-
                             }
                         }
                     }
@@ -132,7 +134,7 @@ namespace Core.Application.Services
 
             }
 
-            Console.WriteLine("=============== End of process Ack ===============");
+            Console.WriteLine("=============== End of process close alert ===============");
         }
 
         public Task ReceiveAlert(string alertjson)

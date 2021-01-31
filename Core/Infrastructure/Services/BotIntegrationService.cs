@@ -19,7 +19,6 @@ namespace Core.Infrastructure.Services
             _clientFactory = clientFactory;
         }
 
-
         public async Task NotifyAsync(Result alert, IEnumerable<SyntheticTestResult> enumerable)
         {
             var uri = new Uri(url);
@@ -45,11 +44,6 @@ namespace Core.Infrastructure.Services
 
                 content = r.ReadToEnd();
             }
-
-            content = content.Replace("{alert_host}", alert.opdata);
-            content = content.Replace("{alert_description}", alert.name);
-            content = content.Replace("{due_date}", DateTime.Now.ToString());
-            content = content.Replace("{url_video}", "");
 
             var response = await client.PostAsync(uri, new StringContent(content));
 

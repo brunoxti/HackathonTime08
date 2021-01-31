@@ -34,7 +34,7 @@ namespace Core.Application.Services
             var val = Console.ReadLine();
             Console.WriteLine("Your input: {0}", val);
 
-            //await _zabbixIntegratorApplicationService.WorkerAlert(val);
+            
 
             //await _botApplicationService.NotifyAsync(default);
 
@@ -97,6 +97,8 @@ namespace Core.Application.Services
 
             //realizar ack do alerta no Noc
             //enviar resultado pro Teams via bot
+
+            await _zabbixIntegratorApplicationService.WorkerAlert(val);
         }
 
 
