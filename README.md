@@ -47,3 +47,17 @@ Acreditamos que o uso desta solução, se efetiva, minimizaria o problema da vol
 Não será necessário a compra de novas ferramentas de mercado. A IA utilizada é uma ferramenta terceira da Machine Learning Microsoft (para .NET), porém sem custo adicional.  Será necessário o investimento na evolução da solução MVP apresentada. O investimento varia conforme a cobertura dos testes. O mesmo teste sintético pode servir para a mesma funcionalidade em vários pontos distintos do sistema em análise. Uma funcionalidade do sistema pode ser coberta por vários testes distintos, sendo uma relação de muitos para muitos, assim como na análise da cobertura de testes.  A cobertura destes testes pode ser algo associado aos objetivos de melhoria na Qualidade de Desenvolvimento, uma vez que pode seguir alinhado à automação dos testes. É possível aproveitar os testes automatizados para realizar os testes sintéticos. A possível diminuição das interações humanas, com um menor volume de horas trabalhadas verificando os acionamentos do NOC,  pode ser considerado uma boa contra partida para o investimento necessário. Hoje uma equipe terceira realiza tratativa sobre estes itens falsos positivos, porém leva em média 2 dias para verificar e tratar os falsos positivos.   O investimento em testes sintéticos pode trazer uma evolução também no sentido da qualidade de desenvolvimento de sistemas para as Squads da área de Tecnologia da Empresa.
 
 Este MVP abre caminho para avaliar o uso dos testes sintéticos para analise de problemas em Produção. Este viabilizou a analise de viabilidade de abordagens mais completas do que este MVP que acreditamos serem viáveis, efetivas e podem melhorar o monitoramento e tratativa dos problemas em Produção. Estas propostas de evolução são apresentadas nos trabalhos futuros apresentados a seguir.
+
+<h2>Hipótese 1:</h2>  
+Nossa hipótese para o MVP é:
+O uso de testes sintéticos pode verificar inconsistências em produção e seria importante para diminuir o VOLUME de incidentes/alertas falsos positivos abertos ao realizar uma verificação da ocorrência através de uma IA. 
+
+A IA dispara automaticamente este teste sintético, eliminando a interação humana e diminuindo a carga de trabalho e TEMPO de resposta aos Incidentes. Pois caso seja um alerta falso, a IA fecharia estes incidentes acarretando menos incidentes abertos e zero interações humanas sobre os incidentes falsos positivos cobertos pelos testes sintéticos.
+
+<h2>Objetivos:</h2>
+
+**O principal objetivo do MVP é:**
+ 	Diminuir o volume de alertas abertos através da verificação realizada pela IA, eliminando os alertas Falsos Negativos. 
+**O objetivo secundário do MVP é:**
+	Validar o uso de testes sintéticos pensando em trabalhos futuros, evolução do MVP, que pode ter uma cobertura mais abrangente e tratar muitos outros problemas segundo hipóteses apresentadas nos trabalhos futuros. 
+
