@@ -27,19 +27,19 @@ Camadas do Projeto
 
     ├── Infrastructure                # Camada de infraestrutura (Integrações)
 	    ├──Configuration                # Camada de configuração
-	    ├──Context    		    # Contexto da aplicação estrutura de de aprendizado da IA	
-	    ├──Map			    # Mapeamentos banco	 
-	    ├──Services			    # Serviços de integração com os serviços (Zabbix, TEstes Sinteticos, BotTeams)
+	    ├──Context    		    # Contexto da aplicação estrutura de aprendizado da IA	
+	    ├──Map			    # Mapeamentos banco	de dados 
+	    ├──Services			    # Serviços de integração com outros serviços (Zabbix, Testes Sintéticos, BotTeams)
    
     ├── Migrations                    # Migrations do bando de dados da IA
-    ├── Resources                     # TEmplates json de testes de integração
+    ├── Resources                     # Templates json de testes de integração
 
 
 
 
 ### Solution NocWatcher.ConsoleApp
 
-	├── ConsoleApp                    # Console Aplication para rodar a aplicação.(Mais facil para apresentação no Hackathon)
+	├── ConsoleApp                    # ConsoleAplication para rodar a aplicação.
 
 
 
@@ -47,15 +47,13 @@ Camadas do Projeto
 ### Solution Unreal-Noc.WebApiReceiver
 
 
-	├── ConsoleApp                    # Console Aplication para rodar a aplicação.(Mais facil para apresentação no Hackathon)
-		├──Controllers		    # Controllers  Controller de recebimento de notificação do Zabbix
+	├── WebApiReceiver                # Webapi para endpoint de rebebimento de mensagens json.
+		├──Controllers		    # Controller de recebimento de notificação do Zabbix
 		├──appSettings              # Arquivo de cofiguração
 		├──Program		    # Classe de inicialição
 		├──Starup		    # Classe para configurar serviços por injeção de dependencia.
    
-   
-<h1>Título: Uma solução para detecção e tratativa de problemas em produção focada na perspectiva do cliente final</h1>
-
+ 
 <h1>Equipe:</h1>
 
 1. Bruno Alves 
@@ -64,7 +62,7 @@ Camadas do Projeto
 4. Ivan Lopes
 5. Edson Costa 
 
-<h2>Problemas:</h2> 
+<h1>Problemas:</h1> 
   <ul>
   <li>VOLUME de  Acionamentos é alto, um total de 100k de alertas, sendo aproximadamente 20% de falsos positivos;</li>
   <li>TEMPO  de retorno sobre a necessidade de verificar o acionamento, dado que é uma verificação humana.</li>
@@ -74,7 +72,7 @@ Camadas do Projeto
 
 Hoje são gerados 100.000 incidentes por mês para serem tratados pela Squad do NOC, área de monitoramento de infraestrutura de TI da XP Inc. Sendo que aproximadamente 20% em média são falsos positivos.
 
-<h2>Solução Técnica:</h2>
+<h1>Solução Técnica:</h1>
 
 1. **A Solução envolve algumas funcionalidades que serão descritas a seguir.**
 
