@@ -2,6 +2,16 @@
 
 
 Projeto
+Aplicação com IA que fica ouvindo alertas do Zabbix, e quando um alerta aparece, ela através de um treinamento prévio* e uma base cheia de testes sintéticos calcula o rating de cada teste em relação aquele alerta e seleciona os 3 testes mais apropriados para verificar se o alerta é falso.
+
+Cada teste sintético é um teste end-to-end de um fluxo de negócio utilizando puppeteer** sendo executado fazendo o papel do cliente final real.
+
+Acessando a aplicação e realizando um fluxo de negócio que passa pelo código onde o alerta está foi gerado.
+
+O teste além de ser executado ele é gravado em vídeo.
+O alerta é fechado caso os testes provem que o alerta é falso, caso contrário redirecionamos as evidências dos testes e o resultado do teste para a Squad responsável.
+
+
 
 Camadas do Projeto
 
@@ -15,7 +25,7 @@ Camadas do Projeto
    
 	├──Domain                         # Camada de Dominio/Models (Contratos Request/Response) IA e Zabbix
 
-	├── Infrastructure                # Source files (alternatively `lib` or `app`)
+    ├── Infrastructure                # Camada de infraestrutura (Integrações)
 	├──Configuration                  # Camada de configuração
 	├──Context    			  # Contexto da aplicação estrutura de de aprendizado da IA	
 	├──Map				  # Mapeamentos banco	 
