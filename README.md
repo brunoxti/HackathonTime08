@@ -1,5 +1,5 @@
 # HackathonTime08
-# Markdown
+
 
 <h1>Título:</h1> Uma solução para detecção e tratativa de problemas em produção focada na perspectiva do cliente final
 
@@ -101,8 +101,10 @@ Figura 3: Proposta de Futuro Fluxo de Acionamentos do NOC.
 
 
 <h3>Problemas 2:</h3>
-1. TEMPO de Acionamento 
-2. TEMPO de Resposta da Tratativa  
+
+1. TEMPO de Acionamento; 
+
+2. TEMPO de Resposta da Tratativa.  
 
 <h3>Hipótese 2:</h3>  
 
