@@ -2,9 +2,9 @@
 
 
 ### Projeto NocWatcher
-<li>Aplicação com IA que fica ouvindo alertas do Zabbix, e quando um alerta aparece, ela através de um treinamento prévio* e uma base cheia de testes sintéticos calcula o rating de cada teste em relação aquele alerta e seleciona os 3 testes mais apropriados para verificar se o alerta é falso.</li>
+<li>Aplicação com IA que fica ouvindo alertas do Zabbix, e quando um alerta aparece, ela através de um treinamento prévio e uma base cheia de testes sintéticos calcula o rating de cada teste em relação aquele alerta e seleciona o teste mais apropriado para verificar se o alerta é falso.</li>
 
-<li>Cada teste sintético é um teste end-to-end de um fluxo de negócio utilizando puppeteer** sendo executado fazendo o papel do cliente final real.</li>
+<li>Cada teste sintético é um teste end-to-end de um fluxo de negócio utilizando puppeteer sendo executado fazendo o papel do cliente final real.</li>
 
 <li>Acessando a aplicação e realizando um fluxo de negócio que passa pelo código onde o alerta foi gerado.</li>
 
