@@ -31,7 +31,7 @@ Camadas do Projeto
 	    ├──Map			    # Mapeamentos banco	de dados 
 	    ├──Services			    # Serviços de integração com outros serviços (Zabbix, Testes Sintéticos, BotTeams)
    
-    ├── Migrations                    # Migrations do banco de dados da IA
+    ├── Migrations                    # Migrations do bando de dados da IA
     ├── Resources                     # Templates json de testes de integração
 
 
@@ -142,7 +142,7 @@ A IA também pode ser treinada para avaliar as relação entre múltiplos incide
 
 Medium - https://medium.com/revista-tspi/testes-sint%C3%A9ticos-3fd1be96d745.
 
-Hipsters.Tech - Testes sintéticos no C6 Bank.
+Hipsters.Tech - Testes sintéticos no C6 Bank - https://hipsters.tech/testes-sinteticos-no-c6-bank-hipsters-on-the-road-40/.
 
 Flávia Falé e Serge Gebhardt - Synthetic Monitoring.
 
