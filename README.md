@@ -47,7 +47,7 @@ Camadas do Projeto
 ### Solution Unreal-Noc.WebApiReceiver
 
 
-	├── WebApiReceiver                # Webapi para endpoint de rebebimento de mensagens json.
+	├── WebApiReceiver                # Webapi para endpoint de recebimento de mensagens json.
 		├──Controllers		    # Controller de recebimento de notificação do Zabbix
 		├──appSettings              # Arquivo de configuração
 		├──Program		    # Classe de inicialização da aplicação
@@ -84,7 +84,7 @@ Hoje são gerados 100.000 incidentes por mês para serem tratados pela Squad do 
 
 5. **Formalizar pelo Teams  sobre o fechamento de Incidentes Falsos Positivos**
 
-6. **Alertas Verdadeiros serão verificados, já dando feedback de alerta sendo analisado. Lembrando que a IA já realizou os testes na plataforma, facilitando muito a análise humana.
+6. **Alertas Verdadeiros serão verificados, já dando feedback de alerta sendo analisado. Lembrando que a IA já realizou os testes na plataforma, facilitando muito a análise humana.**
 
 7. **Formalizar o teste através do vídeo com evidências, enviados junto com a mensagem do Teams.**
 
