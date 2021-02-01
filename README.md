@@ -13,7 +13,7 @@
 
 ## Camadas do Projeto:
 
-### Solution NocWatcher.Core 
+### Projeto NocWatcher.Core 
 
     ├── Application			  # Camada de aplicação
         ├──Service			    # Serviços para execução de fluxo dos testes do com IA
@@ -35,14 +35,14 @@
 
 
 
-### Solution NocWatcher.ConsoleApp
+### Projeto NocWatcher.ConsoleApp
 
 	├── ConsoleApp                    # ConsoleAplication para rodar a aplicação.
 
 
 
 
-### Solution Unreal-Noc.WebApiReceiver
+### Projeto WebApiReceiver
 
 
 	├── WebApiReceiver                # Webapi para endpoint de recebimento de mensagens json.
