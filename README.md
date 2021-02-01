@@ -31,7 +31,7 @@ Camadas do Projeto
 	    ├──Map			    # Mapeamentos banco	de dados 
 	    ├──Services			    # Serviços de integração com outros serviços (Zabbix, Testes Sintéticos, BotTeams)
    
-    ├── Migrations                    # Migrations do bando de dados da IA
+    ├── Migrations                    # Migrations do banco de dados da IA
     ├── Resources                     # Templates json de testes de integração
 
 
