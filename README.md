@@ -18,16 +18,16 @@ Camadas do Projeto
 ### Solution NocWatcher.Core 
 
     ├── Application			  # Camada de aplicação
-        ├──Service			    # Serviços para execução dos testes do com IA
+        ├──Service			    # Serviços para execução de fluxo dos testes do com IA
         ├──Contract			    # Contratos (Interface) da aplicação IA
         ├──Dto			    # Contratos de requisição para os testes 	
-        ├──IntegrationContracts	    # Contrados (Interfaces) dos serviços de inegração(Testes Sintéticos, Zabbix, BotTeams)
+        ├──IntegrationContracts	    # Contrados (Interfaces) dos serviços de integração(Testes Sintéticos, Zabbix, BotTeams)
    
 	├──Domain                         # Camada de Dominio/Models (Contratos Request/Response) IA e Zabbix
 
     ├── Infrastructure                # Camada de infraestrutura (Integrações)
 	    ├──Configuration                # Camada de configuração
-	    ├──Context    		    # Contexto da aplicação estrutura de aprendizado da IA	
+	    ├──Context    		    # Contexto de acesso ao banco de dados da aplicação da IA	
 	    ├──Map			    # Mapeamentos banco	de dados 
 	    ├──Services			    # Serviços de integração com outros serviços (Zabbix, Testes Sintéticos, BotTeams)
    
@@ -50,8 +50,8 @@ Camadas do Projeto
 	├── WebApiReceiver                # Webapi para endpoint de rebebimento de mensagens json.
 		├──Controllers		    # Controller de recebimento de notificação do Zabbix
 		├──appSettings              # Arquivo de cofiguração
-		├──Program		    # Classe de inicialição
-		├──Starup		    # Classe para configurar serviços por injeção de dependencia.
+		├──Program		    # Classe de inicialização
+		├──Starup		    # Classe para configurar serviços por injeção de dependência.
    
  
 <h1>Equipe:</h1>
