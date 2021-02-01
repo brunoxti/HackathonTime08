@@ -2,6 +2,7 @@
 using Core.Application.IntegrationContracts;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Reflection;
@@ -25,11 +26,11 @@ namespace Core.Infrastructure.Services
             var uri = new Uri($"http://localhost:3000/test-flow");
 
             var client = _clientFactory.CreateClient();
+            var postData = new List<KeyValuePair<string, string>>();
+            postData.Add(new KeyValuePair<string, string>("id", testId));
+            var formContent = new FormUrlEncodedContent(postData);
 
-            //JObject data = JObject.Parse(File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"JsonDetectiveRequest.json")));
-
-            var json = JsonSerializer.Serialize(new DetectiveRequestDto { Id = testId });
-            var response = await client.PostAsync(uri, new StringContent(json, Encoding.UTF8, "application/json"));
+            var response = await client.PostAsync(uri, formContent);
 
             if (response.IsSuccessStatusCode)
             {
