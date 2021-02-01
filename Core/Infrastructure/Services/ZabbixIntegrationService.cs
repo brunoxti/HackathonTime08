@@ -179,7 +179,7 @@ namespace Core.Application.Services
                 @params = new
                 {
                     eventids = eventids,
-                    action = ActionEvent.AcknowledgeEvent,
+                    action = 6,
                     message = "Alerta recebido. Time 08 hackthon analisando!."
                 },
                 auth = subscriptionKey
@@ -195,7 +195,7 @@ namespace Core.Application.Services
                 @params = new
                 {
                     eventids = eventids,
-                    action = ActionEvent.CloseProblem,
+                    action = 1,
                     message = "Problem resolved by Time 08 Hackathon! :)"
                 },
                 auth = subscriptionKey

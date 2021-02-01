@@ -1,51 +1,59 @@
 # HackathonTime08
 
 
-Projeto
+### Projeto NocWatcher
+<li>Aplicação com IA que fica ouvindo alertas do Zabbix, e quando um alerta aparece, ela através de um treinamento prévio e uma base cheia de testes sintéticos calcula o rating de cada teste em relação aquele alerta e seleciona o teste mais apropriado para verificar se o alerta é falso.</li>
+
+<li>Cada teste sintético é um teste end-to-end de um fluxo de negócio utilizando puppeteer sendo executado fazendo o papel do cliente final real.</li>
+
+<li>Acessando a aplicação e realizando um fluxo de negócio que passa pelo código onde o alerta foi gerado.</li>
+
+<li>O teste além de ser executado ele é gravado em vídeo.</li>
+<li>O alerta é fechado caso os testes provem que o alerta é falso, caso contrário redirecionamos as evidências dos testes e o resultado do teste para a Squad responsável.</li>
+
+
 
 Camadas do Projeto
 
-<h1> Solution Unreal-Noc.Core </h1> 
+### Solution NocWatcher.Core 
 
-├── Application                   # Camada de aplicação
-   ├──Service					  # Serviços para execução dos testes do com IA
-   ├──Contract                    # Contratos (Interface) da aplicação IA
-   ├──Dto						  # Contratos de requisição para os testes 	
-   ├──IntegrationContracts		  # Contrados (Interfaces) dos serviços de inegração(Testes Sintéticos, Zabbix, BotTeams)
+    ├── Application			  # Camada de aplicação
+        ├──Service			    # Serviços para execução de fluxo dos testes do com IA
+        ├──Contract			    # Contratos (Interface) da aplicação IA
+        ├──Dto			    # Contratos de requisição para os testes 	
+        ├──IntegrationContracts	    # Contratos (Interfaces) dos serviços de integração(Testes Sintéticos, Zabbix, BotTeams)
    
-├──Domain                         # Camada de Dominio/Models (Contratos Request/Response) IA e Zabbix
+	├──Domain                         # Camada de Domínio/Models (Contratos Request/Response) IA e Zabbix
 
-├── Infrastructure                # Source files (alternatively `lib` or `app`)
-   ├──Configuration               #	Camada de configuração
-   ├──Context    				  # Contexto da aplicação estrutura de de aprendizado da IA	
-   ├──Map						  # Mapeamentos banco	 
-   ├──Services					  # Serviços de integração com os serviços (Zabbix, TEstes Sinteticos, BotTeams)
+    ├── Infrastructure                # Camada de infraestrutura (Integrações)
+	    ├──Configuration                # Camada de configuração
+	    ├──Context    		    # Contexto de acesso ao banco de dados da aplicação da IA	
+	    ├──Map			    # Mapeamentos do banco de dados 
+	    ├──Services			    # Serviços de integração com outros serviços (Zabbix, Testes Sintéticos, BotTeams)
    
-├── Migrations                    # Migrations do bando de dados da IA
-├── Resources                     # TEmplates json de testes de integração
+    ├── Migrations                    # Migrations do banco de dados da IA
+    ├── Resources                     # Templates json de testes de integração
 
 
 
 
-<h1> Solution Unreal-Noc.ConsoleApp </h1> 
+### Solution NocWatcher.ConsoleApp
 
-├── ConsoleApp                    # Console Aplication para rodar a aplicação.(Mais facil para apresentação no Hackathon)
-
-
+	├── ConsoleApp                    # ConsoleAplication para rodar a aplicação.
 
 
-<h1> Solution Unreal-Noc.WebApiReceiver </h1> 
 
 
-├── ConsoleApp                    # Console Aplication para rodar a aplicação.(Mais facil para apresentação no Hackathon)
-   ├──Controllers				  # Controllers  Controller de recebimento de notificação do Zabbix
-   ├──appSettings                 # Arquivo de cofiguração
-   ├──Program					  # Classe de inicialição
-   ├──Starup					  # Classe para configurar serviços por injeção de dependencia.
+### Solution Unreal-Noc.WebApiReceiver
+
+
+	├── WebApiReceiver                # Webapi para endpoint de rebebimento de mensagens json.
+		├──Controllers		    # Controller de recebimento de notificação do Zabbix
+		├──appSettings              # Arquivo de configuração
+		├──Program		    # Classe de inicialização da aplicação
+		├──Starup		    # Classe para configurar serviços por injeção de dependência.
    
-   
-<h1>Título: Uma solução para detecção e tratativa de problemas em produção focada na perspectiva do cliente final</h1>
-
+ 
 <h1>Equipe:</h1>
 
 1. Bruno Alves 
@@ -54,18 +62,17 @@ Camadas do Projeto
 4. Ivan Lopes
 5. Edson Costa 
 
-
-<h1>Proposta:</h1> 
-
-Hoje são gerados 100.000 incidentes por mês para serem tratados pela Squad do NOC, área de monitoramento de infraestrutura de TI da XP Inc. Sendo que aproximadamente 20% em média são falsos positivos.
-
-<h2>Problema:</h2> 
+<h1>Problemas:</h1> 
   <ul>
   <li>VOLUME de  Acionamentos é alto, um total de 100k de alertas, sendo aproximadamente 20% de falsos positivos;</li>
   <li>TEMPO  de retorno sobre a necessidade de verificar o acionamento, dado que é uma verificação humana.</li>
 </ul>
 
-<h2>Solução Técnica:</h2>
+<h1>Proposta:</h1> 
+
+Hoje são gerados 100.000 incidentes por mês para serem tratados pela Squad do NOC, área de monitoramento de infraestrutura de TI da XP Inc. Sendo que aproximadamente 20% em média são falsos positivos.
+
+<h1>Solução Técnica:</h1>
 
 1. **A Solução envolve algumas funcionalidades que serão descritas a seguir.**
 
@@ -77,9 +84,9 @@ Hoje são gerados 100.000 incidentes por mês para serem tratados pela Squad do 
 
 5. **Formalizar pelo Teams  sobre o fechamento de Incidentes Falsos Positivos**
 
-   OBS: Alertas Verdadeiros serão verificados, mas não serão respondidos, inicialmente. Lembrando que a IA já realizou os testes na plataforma, facilitando muito a análise humana.
+6. **Alertas Verdadeiros serão verificados, já dando feedback de alerta sendo analisado. Lembrando que a IA já realizou os testes na plataforma, facilitando muito a análise humana.
 
-6. **Formalizar o teste através do vídeo com evidências, enviados junto com a mensagem do Teams.**
+7. **Formalizar o teste através do vídeo com evidências, enviados junto com a mensagem do Teams.**
 
 
 <h2>Melhorias Futuras:</h2>
@@ -135,7 +142,7 @@ A IA também pode ser treinada para avaliar as relação entre múltiplos incide
 
 Medium - https://medium.com/revista-tspi/testes-sint%C3%A9ticos-3fd1be96d745.
 
-Hipsters.Tech - Testes sintéticos no C6 Bank.
+Hipsters.Tech - Testes sintéticos no C6 Bank - https://hipsters.tech/testes-sinteticos-no-c6-bank-hipsters-on-the-road-40/.
 
 Flávia Falé e Serge Gebhardt - Synthetic Monitoring.
 
