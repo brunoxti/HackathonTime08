@@ -32,7 +32,7 @@ namespace Core.Infrastructure.Services
             content = content.Replace("{alert_host}", alert.eventid);
             content = content.Replace("{alert_description}", alert.name);
             content = content.Replace("{due_date}", DateTime.Now.ToString());
-            content = content.Replace("{url_video}", videoUrl);
+            content = content.Replace("{url_video}", "http://localhost:3000/" + videoUrl);
 
             // Perform Connector POST operation     
             var httpResponseMessage = await client.PostAsync(falsePosisiveChannelUrl, new StringContent(content));

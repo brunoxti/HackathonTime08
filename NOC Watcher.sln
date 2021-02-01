@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{54B881A3-DF9B-4DB9-B2CB-51F8C82E4497}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnrealNoc.ConsoleApp", "Unreal-NocML.ConsoleApp\UnrealNoc.ConsoleApp.csproj", "{F7CEEA54-0F7D-4279-8102-7FE241DD13E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NocWatcher.ConsoleApp", "Unreal-NocML.ConsoleApp\NocWatcher.ConsoleApp.csproj", "{F7CEEA54-0F7D-4279-8102-7FE241DD13E7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiReceiver", "WebApi\WebApiReceiver.csproj", "{86D05436-78E5-4EA2-9D1F-96C3546D22BF}"
 EndProject

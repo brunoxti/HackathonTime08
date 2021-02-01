@@ -18,20 +18,20 @@ Camadas do Projeto
 ### Solution NocWatcher.Core 
 
     ├── Application			  # Camada de aplicação
-        ├──Service			    # Serviços para execução dos testes do com IA
+        ├──Service			    # Serviços para execução de fluxo dos testes do com IA
         ├──Contract			    # Contratos (Interface) da aplicação IA
         ├──Dto			    # Contratos de requisição para os testes 	
-        ├──IntegrationContracts	    # Contrados (Interfaces) dos serviços de inegração(Testes Sintéticos, Zabbix, BotTeams)
+        ├──IntegrationContracts	    # Contratos (Interfaces) dos serviços de integração(Testes Sintéticos, Zabbix, BotTeams)
    
-	├──Domain                         # Camada de Dominio/Models (Contratos Request/Response) IA e Zabbix
+	├──Domain                         # Camada de Domínio/Models (Contratos Request/Response) IA e Zabbix
 
     ├── Infrastructure                # Camada de infraestrutura (Integrações)
 	    ├──Configuration                # Camada de configuração
-	    ├──Context    		    # Contexto da aplicação estrutura de aprendizado da IA	
-	    ├──Map			    # Mapeamentos banco	de dados 
+	    ├──Context    		    # Contexto de acesso ao banco de dados da aplicação da IA	
+	    ├──Map			    # Mapeamentos do banco de dados 
 	    ├──Services			    # Serviços de integração com outros serviços (Zabbix, Testes Sintéticos, BotTeams)
    
-    ├── Migrations                    # Migrations do bando de dados da IA
+    ├── Migrations                    # Migrations do banco de dados da IA
     ├── Resources                     # Templates json de testes de integração
 
 
@@ -47,11 +47,11 @@ Camadas do Projeto
 ### Solution Unreal-Noc.WebApiReceiver
 
 
-	├── WebApiReceiver                # Webapi para endpoint de rebebimento de mensagens json.
+	├── WebApiReceiver                # Webapi para endpoint de recebimento de mensagens json.
 		├──Controllers		    # Controller de recebimento de notificação do Zabbix
-		├──appSettings              # Arquivo de cofiguração
-		├──Program		    # Classe de inicialição
-		├──Starup		    # Classe para configurar serviços por injeção de dependencia.
+		├──appSettings              # Arquivo de configuração
+		├──Program		    # Classe de inicialização da aplicação
+		├──Starup		    # Classe para configurar serviços por injeção de dependência.
    
  
 <h1>Equipe:</h1>
@@ -84,7 +84,7 @@ Hoje são gerados 100.000 incidentes por mês para serem tratados pela Squad do 
 
 5. **Formalizar pelo Teams  sobre o fechamento de Incidentes Falsos Positivos**
 
-6. **Alertas Verdadeiros serão verificados, já dando feedback de alerta sendo analisado. Lembrando que a IA já realizou os testes na plataforma, facilitando muito a análise humana.
+6. **Alertas Verdadeiros serão verificados, já dando feedback de alerta sendo analisado. Lembrando que a IA já realizou os testes na plataforma, facilitando muito a análise humana.**
 
 7. **Formalizar o teste através do vídeo com evidências, enviados junto com a mensagem do Teams.**
 
@@ -142,7 +142,7 @@ A IA também pode ser treinada para avaliar as relação entre múltiplos incide
 
 Medium - https://medium.com/revista-tspi/testes-sint%C3%A9ticos-3fd1be96d745.
 
-Hipsters.Tech - Testes sintéticos no C6 Bank.
+Hipsters.Tech - Testes sintéticos no C6 Bank - https://hipsters.tech/testes-sinteticos-no-c6-bank-hipsters-on-the-road-40/.
 
 Flávia Falé e Serge Gebhardt - Synthetic Monitoring.
 

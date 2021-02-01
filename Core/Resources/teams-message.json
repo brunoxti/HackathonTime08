@@ -2,11 +2,11 @@
   "@type": "MessageCard",
   "@context": "http://schema.org/extensions",
   "themeColor": "0076D7",
-  "summary": "Unreal Noc detectou um falso positivo",
+  "summary": "NOC Watcher detectou um falso positivo",
   "sections": [
     {
-      "activityTitle": "Unreal Noc detectou um falso positivo",
-      "activitySubtitle": "Unreal Noc",
+      "activityTitle": "NOC Watcher detectou um falso positivo",
+      "activitySubtitle": "NOC Watcher",
       "facts": [
         {
           "name": "Host",
@@ -31,7 +31,7 @@
       "targets": [
         {
           "os": "default",
-          "uri": "https://docs.microsoft.com/outlook/actionable-messages"
+          "uri": "{url_video}"
         }
       ]
     }
