@@ -37,7 +37,7 @@
 
 ### Projeto NocWatcher.ConsoleApp
 
-	├── ConsoleApp                    # ConsoleAplication para rodar a aplicação.
+	├── ConsoleApp                    # ConsoleAplication para executar a aplicação.
 
 
 
