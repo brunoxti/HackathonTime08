@@ -2,7 +2,7 @@
 
 
 ### Projeto NocWatcher
-<li>Aplicação com IA que fica ouvindo alertas do Zabbix, e quando um alerta aparece, ela através de um treinamento prévio e uma base cheia de testes sintéticos calcula o rating de cada teste em relação aquele alerta e seleciona o teste mais apropriado para verificar se o alerta é falso.</li>
+<li>Aplicação com IA que fica ouvindo alertas do Zabbix onde quando um alerta é captado, a aplicação através de um treinamento prévio e uma base cheia de testes sintéticos, calcula o rating de cada teste em relação aquele alerta e seleciona o teste mais apropriado para verificar se o alerta é falso.</li>
 
 <li>Cada teste sintético é um teste end-to-end de um fluxo de negócio utilizando puppeteer sendo executado fazendo o papel do cliente final real.</li>
 
@@ -148,7 +148,7 @@ Flávia Falé e Serge Gebhardt - Synthetic Monitoring.
 
 CloudQA - What is Synthetic Testing?.
 
-Freyja |Raygun - What is Synthetic Testing? A definition and how it compares to Real User Monitoring.
+Freyja Spaven | Raygun - What is Synthetic Testing? A definition and how it compares to Real User Monitoring.
 
 Pingdom - Synthetinc Testing.
 
