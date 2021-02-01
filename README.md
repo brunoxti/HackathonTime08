@@ -6,7 +6,7 @@
 
 <li>Cada teste sintético é um teste end-to-end de um fluxo de negócio utilizando puppeteer** sendo executado fazendo o papel do cliente final real.</li>
 
-<li>Acessando a aplicação e realizando um fluxo de negócio que passa pelo código onde o alerta está foi gerado.</li>
+<li>Acessando a aplicação e realizando um fluxo de negócio que passa pelo código onde o alerta foi gerado.</li>
 
 <li>O teste além de ser executado ele é gravado em vídeo.</li>
 <li>O alerta é fechado caso os testes provem que o alerta é falso, caso contrário redirecionamos as evidências dos testes e o resultado do teste para a Squad responsável.</li>
