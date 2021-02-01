@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>Collect Evidences</h2>
+<mat-dialog-content class="mat-typography">
+    <br />
+    <h3 mat-dialog-title>Evidences</h3>
+    <ul>
+        <li *ngFor="let item of flows">{{item.name}}</li>
+    </ul>
+
+    <h3 mat-dialog-title>Variables</h3>
+    <table class="mat-elevation-z1">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Value</th>
+        </tr>
+        <tr *ngFor="let variable of flow.variables; let i = index">
+            <td><b>{{variable.name}}</b></td>
+            <td><span>{{variable.description}}</span></td>
+            <td>
+                <mat-form-field appearance="fill" [style.width.px]="200">
+                    <input [type]="variable.isSensitive ? 'password' : 'text'" [(ngModel)]="variable.value" matInput>
+                </mat-form-field>
+            </td>
+        </tr>
+    </table>
+<br />
+<br />
+    <h3 mat-dialog-title>Header</h3>
+    <br />
+    <mat-form-field appearance="outline">
+        <mat-label>ID</mat-label>
+        <input matInput [(ngModel)]="flow.gmud">
+    </mat-form-field><br>
+    <mat-form-field appearance="outline">
+        <mat-label>Date (Ex: 23/09/2020 19:52)</mat-label>
+        <input matInput [(ngModel)]="flow.date">
+    </mat-form-field><br>
+    <mat-form-field appearance="outline" style="width:70%;">
+        <mat-label>Title (Ex: Teste Clear Pro - Login)</mat-label>
+        <input matInput [(ngModel)]="flow.title">
+    </mat-form-field><br>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-flat-button [mat-dialog-close]="flow" color="primary" cdkFocusInitial>Collect</button>
+</mat-dialog-actions>

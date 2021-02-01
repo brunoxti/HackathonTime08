@@ -1,0 +1,42 @@
+{
+  "name": "xp-detective",
+  "version": "1.0.0",
+  "description": "Collect evidences to support GMUD processes",
+  "scripts": {
+    "start": "nodemon",
+    "build": "rimraf ./dist && tsc && cp -a \"./src/assets\" \"./dist/assets\"",
+    "build-win": "rimraf ./dist && tsc && xcopy /i /e /s \"./src/assets\" \"./dist/assets\""
+  },
+  "author": "Edson Costa <edson.costa@xpi.com.br>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.11.5",
+    "@types/mongoose": "^5.7.36",
+    "@types/uuid": "^8.3.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "docx": "^5.3.0",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "ffmpeg-stream": "^0.7.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "image-size": "^0.9.1",
+    "mongoose": "^5.10.11",
+    "puppeteer": "^5.3.0",
+    "puppeteer-core": "^5.2.1",
+    "uuid": "^8.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.11.2",
+    "@types/puppeteer": "^3.0.2",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^2.0.4",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2"
+  }
+}

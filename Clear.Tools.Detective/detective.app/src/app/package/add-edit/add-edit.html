@@ -1,0 +1,199 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <div fxFlex="95%">
+        <mat-card>
+            <mat-card-content>
+                <h1>Create Package</h1>
+
+                <mat-form-field class="flow-title">
+                    <mat-label>Name</mat-label>
+                    <input matInput [(ngModel)]="flow.name">
+                </mat-form-field>
+
+                <h2>
+                    Tables
+                    <button mat-button (click)="addTable()">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </h2>
+
+                <mat-accordion class="commands">
+                    <mat-expansion-panel *ngFor="let table of flow.tables; let indexTable = index"
+                        [attr.data-index]="i">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <h2><small>Table #{{indexTable+1}}</small> {{table.name}}</h2>
+                                <span class="spacer"></span>
+                                <p class="collapse-buttons">
+                                    <button mat-button (click)="$event.stopPropagation(); up(flow.tables, indexTable)">
+                                        <mat-icon>arrow_upward</mat-icon>
+                                    </button>
+                                    <button mat-button
+                                        (click)="$event.stopPropagation(); down(flow.tables, indexTable)">
+                                        <mat-icon>arrow_downward</mat-icon>
+                                    </button>
+                                    <button mat-button (click)="removeTable(indexTable)">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </p>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-form-field class="table-title">
+                            <mat-label>Title</mat-label>
+                            <input matInput [(ngModel)]="table.name">
+                        </mat-form-field>
+                        <h3>
+                            Evidences
+                            <button mat-button (click)="addLine(table)">
+                                <mat-icon>add</mat-icon>
+                            </button>
+
+                            <mat-slide-toggle [(ngModel)]="openCode">Add by Code</mat-slide-toggle>
+                        </h3>
+                        <ng-container *ngIf="openCode">
+                            <mat-form-field appearance="outline" class="command-textarea">
+                                <mat-label>Put your well crafted code here
+                                </mat-label>
+                                <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="10"
+                                    [(ngModel)]="code"></textarea>
+                            </mat-form-field>
+                            <button mat-flat-button color="primary" class="add-evidences" (click)="addCode(table)">
+                                Add Evidences
+                            </button>
+                        </ng-container>
+                        <mat-accordion class="commands">
+                            <mat-expansion-panel *ngFor="let line of table.lines; let i = index" [attr.data-index]="i">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        <h3><small>Evidence #{{i+1}}</small> {{line.description}}</h3>
+                                        <span class="spacer"></span>
+                                        <p class="collapse-buttons">
+                                            <button mat-button (click)="$event.stopPropagation(); up(table.lines, i)">
+                                                <mat-icon>arrow_upward</mat-icon>
+                                            </button>
+                                            <button mat-button (click)="$event.stopPropagation(); down(table.lines, i)">
+                                                <mat-icon>arrow_downward</mat-icon>
+                                            </button>
+                                            <button mat-button (click)="removeLine(table, i)">
+                                                <mat-icon>delete</mat-icon>
+                                            </button>
+                                        </p>
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ng-container>
+                                    <h3>Image Description</h3>
+                                    <mat-form-field appearance="outline" class="evidente-title">
+                                        <mat-label>Title</mat-label>
+                                        <input matInput [(ngModel)]="line.description">
+                                    </mat-form-field><br>
+                                    <h3>Columns</h3>
+                                    <ng-container *ngFor="let header of table.headers; let ii = index"
+                                        [attr.data-index]="ii">
+                                        <div>
+                                            <mat-label>
+                                                <span>{{header}}</span>&nbsp;&nbsp;&nbsp;
+                                                <mat-slide-toggle [(ngModel)]="line.texts[ii].isDynamic">
+                                                    <small>Dynamic value</small>
+                                                </mat-slide-toggle>
+                                            </mat-label><br />
+                                            <mat-form-field appearance="fill" *ngIf="!line.texts[ii].isDynamic">
+                                                <input matInput [(ngModel)]="line.texts[ii].text">
+                                            </mat-form-field>
+                                            <ng-container *ngIf="line.texts[ii].isDynamic">
+                                                <mat-form-field appearance="fill">
+                                                    <mat-label>Execute in Command</mat-label>
+                                                    <mat-select [(ngModel)]="line.texts[ii].step">
+                                                        <mat-option
+                                                            *ngFor="let command of line.commands; let ii = index"
+                                                            [value]="ii">
+                                                            <p class='command-info'><b class="command-number">Command
+                                                                    {{ii+1}}</b>&nbsp;&nbsp;&nbsp;
+                                                                {{except(command.url, 60)}}
+                                                            </p>
+                                                        </mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                                <mat-form-field appearance="outline" class="command-textarea">
+                                                    <mat-label>Code</mat-label>
+                                                    <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="4"
+                                                        [(ngModel)]="line.texts[ii].text"></textarea>
+                                                    <br>
+                                                    <small>You must have: <b>return 'MY DYNAMIC VALUE'</b> </small>
+                                                </mat-form-field>
+                                            </ng-container>
+                                        </div>
+                                    </ng-container>
+                                    <h3>
+                                        Commands
+                                        <button mat-button (click)="addCommand(line)">
+                                            <mat-icon>add</mat-icon>
+                                        </button>
+                                    </h3>
+                                    <mat-accordion class="commands">
+                                        <mat-expansion-panel *ngFor="let command of line.commands; let ii = index"
+                                            color="primary">
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>
+                                                    <p class='command-info'><b
+                                                            class="command-number">{{ii+1}}</b>&nbsp;&nbsp;&nbsp;
+                                                        <mat-icon mat-list-icon>{{command.isCode ? 'code' : 'web'}}
+                                                        </mat-icon>
+                                                        {{except(command.url, 60)}}
+                                                    </p>
+                                                    <span class="spacer"></span>
+                                                    <p class="collapse-buttons">
+                                                        <button mat-button
+                                                            (click)="$event.stopPropagation(); up(line.commands, ii)">
+                                                            <mat-icon>arrow_upward</mat-icon>
+                                                        </button>
+                                                        <button mat-button
+                                                            (click)="$event.stopPropagation(); down(line.commands, ii)">
+                                                            <mat-icon>arrow_downward</mat-icon>
+                                                        </button>
+                                                        <button mat-button
+                                                            (click)="$event.stopPropagation(); removeCommand(line, ii)">
+                                                            <mat-icon>delete</mat-icon>
+                                                        </button>
+                                                    </p>
+                                                </mat-panel-title>
+                                            </mat-expansion-panel-header>
+
+                                            <mat-form-field appearance="outline" class="command-input">
+                                                <mat-label>URL</mat-label>
+                                                <input matInput [(ngModel)]="command.url">
+                                            </mat-form-field>
+                                            &nbsp;&nbsp;&nbsp;
+                                            <mat-slide-toggle [(ngModel)]="command.isCode">Execute Code
+                                            </mat-slide-toggle>
+                                            <ng-container *ngIf="command.isCode">
+                                                <br>
+                                                <mat-form-field appearance="outline" class="command-textarea">
+                                                    <mat-label>Code</mat-label>
+                                                    <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="10"
+                                                        [(ngModel)]="command.action"></textarea>
+                                                </mat-form-field>
+                                                <br>
+                                                <small>See <a href="https://pptr.dev/"
+                                                        target="_blank">https://pptr.dev/</a>
+                                                    for
+                                                    API and
+                                                    examples</small>
+                                            </ng-container>
+                                        </mat-expansion-panel>
+                                    </mat-accordion>
+                                </ng-container>
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </mat-expansion-panel>
+                </mat-accordion>
+
+                <br>
+                <div style="text-align: right;">
+                    <a mat-button routerLink="/flow">Back</a>
+                    <button mat-flat-button [disabled]="flow.tables.length == 0" class='confirm-button' color="primary"
+                        (click)="create()">{{flow._id ? 'Update' : 'Create'}}
+                        Flow</button>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

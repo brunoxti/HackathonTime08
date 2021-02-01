@@ -1,0 +1,27 @@
+table {
+    width: 100%;
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+}
+
+tr:hover {
+    background: #f1f1f1;
+}
+
+section button {
+    margin-left: 8px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.center {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}

@@ -1,0 +1,73 @@
+.flow {
+    margin-bottom: 20px;
+}
+
+.flow-title {
+    font-size: 18pt;
+    width: 70%;
+}
+
+.table-title {
+    font-size: 14pt;
+    width: 70%;
+}
+
+.evidente-title {
+    font-size: 12pt;
+    width: 70%;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.command-input {
+    width: 80%;
+}
+
+.command-textarea {
+    width: 100%;
+}
+
+.command-number,
+small {
+    opacity: 0.7;
+}
+
+.command-info {
+    line-height: 29pt;
+}
+
+.confirm-button {
+    font-size: 16pt;
+}
+
+.add-evidences {
+    margin-bottom: 30px;
+}
+
+.collapse-buttons {
+    display: inline-flex;
+}
+
+.collapse-buttons {
+    visibility: hidden;
+}
+
+.tables:hover .buttons-table {
+    visibility: visible;
+}
+
+
+.commands:hover .buttons-command {
+    visibility: visible;
+}
+
+table {
+    width: 100%;
+    padding: 5px 20px;
+}
+
+td, th {
+    text-align: left;
+}

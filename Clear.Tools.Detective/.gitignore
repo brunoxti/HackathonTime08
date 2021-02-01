@@ -1,0 +1,8 @@
+node_modules
+temp
+/dist
+collected/
+build
+detective.api/dist
+detective.api/chromeData
+detective.app/dist

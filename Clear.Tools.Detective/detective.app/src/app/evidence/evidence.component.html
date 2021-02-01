@@ -1,0 +1,61 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+  <div fxFlex="95%">
+
+    <mat-card>
+      <mat-card-content>
+        <h1>
+          Evidences
+        </h1>
+        <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+        <table class="mat-elevation-z1 flow-table">
+          <tr>
+            <th class="left">ID</th>
+            <th>Title</th>
+            <th class="center">Flows</th>
+            <th class="center">Date</th>
+            <th class="center">Status</th>
+            <th class="center">Download</th>
+          </tr>
+          <tr *ngFor="let evidence of evidences; let i = index">
+            <td>{{evidence.gmud}}</td>
+            <td>{{evidence.title}}</td>
+            <td class="center">{{evidence.flows.length}}</td>
+            <td class="center">{{date(evidence.createdAt)}}</td>
+            <td class="center">{{status(evidence.status)}}</td>
+            <td class="center">
+              <ng-container *ngIf="isDone(evidence.status)">
+                <ng-container *ngFor="let file of evidence.generated.files">
+                  <a [attr.href]="file.path" target="_blank">{{file.name}}.docx</a><br />
+                </ng-container>
+                <br />
+                <br />
+                <ng-container *ngFor="let flow of evidence.flows">
+                  <ng-container *ngFor="let table of flow.tables">
+                    <ng-container *ngFor="let line of table.lines">
+                      <a *ngIf="line.videoUrl" [attr.href]="line.videoUrl" target="_blank">{{line.description}}.webm</a><br />
+                    </ng-container>
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+              <ng-container *ngIf="isError(evidence.status)">
+                <ng-container *ngFor="let error of evidence.errorMessages">
+                  <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Error
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <pre class='error-box'>{{error.message}}</pre>
+                  </mat-expansion-panel>
+                </ng-container>
+              </ng-container>
+            </td>
+          </tr>
+        </table>
+      </mat-card-content>
+      <button mat-raised-button routerLink="/flow" color="primary">Collect</button>&nbsp;&nbsp;&nbsp;&nbsp;
+
+    </mat-card>
+
+  </div>
+</div>

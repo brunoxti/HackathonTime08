@@ -1,0 +1,64 @@
+tr {
+    vertical-align: top;
+}
+
+td:first-child {
+    line-height: 45pt;
+    font-weight: bold;
+}
+
+td {
+    padding-bottom: 20px;
+}
+
+.flow {
+    margin-bottom: 20px;
+}
+
+.flow-title {
+    font-size: 18pt;
+    width: 70%;
+}
+
+.table-title {
+    font-size: 14pt;
+    width: 70%;
+}
+
+.evidente-title {
+    font-size: 12pt;
+    width: 70%;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.command-input {
+    width: 80%;
+}
+
+.command-textarea {
+    width: 100%;
+}
+
+.command-number,
+small {
+    opacity: 0.7;
+}
+
+.command-info {
+    line-height: 29pt;
+}
+
+.confirm-button {
+    font-size: 16pt;
+}
+
+.add-evidences {
+    margin-bottom: 30px;
+}
+
+.collapse-buttons {
+    display: inline-flex;
+}

@@ -240,7 +240,7 @@ namespace Core.Application.Services
                 @params = new
                 {
                     user = "C000012",
-                    password = "XXXXX*",
+                    password = "App45112710*",
                 }
             };
             return request;

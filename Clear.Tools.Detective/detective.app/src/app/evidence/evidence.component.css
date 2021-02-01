@@ -1,0 +1,43 @@
+table {
+    width: 100%;
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+}
+
+tr:hover {
+    background: #f1f1f1;
+}
+
+section button {
+    margin-left: 8px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.center {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+.flow-table td {
+    padding: 15px;
+}
+
+.flow-table th {
+    padding: 10px;
+}
+
+.error-box {
+    text-align: left;
+    background: #2d2b2b;
+    color: #f9f9f9;
+    padding: 15px 20px;
+    border-radius: 5px;
+}

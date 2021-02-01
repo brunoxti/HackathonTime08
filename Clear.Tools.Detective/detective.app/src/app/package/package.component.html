@@ -1,0 +1,39 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+  <div fxFlex="95%">
+
+    <mat-card>
+      <mat-card-content>
+        <h1>
+          Package
+          <a mat-button routerLink="/package/new">
+            <mat-icon>add</mat-icon>
+          </a>
+        </h1>
+        <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+        <table class="mat-elevation-z1 flow-table">
+          <tr>
+            <th class="center">#</th>
+            <th class="left">Name</th>
+            <th class="center">Flows</th>
+            <th class="center">Actions</th>
+          </tr>
+          <tr *ngFor="let flow of flows; let i = index">
+            <td class="center">
+              <mat-checkbox [(ngModel)]="collect_list[i]"></mat-checkbox>
+            </td>
+            <td>{{flow.name}}</td>
+            <td class="center">{{evidences(flow)}}</td>
+            <td class="center">
+              <a mat-raised-button [routerLink]="['/package/edit', flow._id]" [disabled]="blocked[i]">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <button mat-raised-button  (click)="duplicate(i)" [disabled]="blocked[i]">Duplicate</button>&nbsp;&nbsp;&nbsp;&nbsp;
+              <button mat-raised-button color="warn" (click)="delete(i)" [disabled]="blocked[i]">Delete</button>
+            </td>
+          </tr>
+        </table>
+      </mat-card-content>
+      <button mat-raised-button (click)="openCollectDialog()" color="primary">Collect</button>&nbsp;&nbsp;&nbsp;&nbsp;
+
+    </mat-card>
+
+  </div>
+</div>

@@ -35,6 +35,8 @@ namespace Core.Application.Services
         public async Task ExecuteAsync()
         {
 
+            await _zabbixIntegratorApplicationService.WorkerAlert("4795677");
+
             //Receive alert from Zabbix            
             var nocAlert = getNocAlert();
 

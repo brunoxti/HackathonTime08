@@ -1,0 +1,32 @@
+version: '3'
+services:
+    web:
+        build: ./detective.app
+        container_name: clear.detective.app
+        image: clear.detective.app
+        ports:
+            - "4200:4200"
+    api:
+        build: ./detective.api
+        container_name: clear.detective.api
+        image: clear.detective.api
+        ports:
+            - "3000:3000"
+        depends_on:
+            - mongo
+        links:
+            - mongo
+        environment:
+            MONGO_URI: "mongo"
+            MONGO_PORT: "27017"
+            NODE_ENV: 'production'
+    mongo:
+        container_name: mongo
+        image: mongo:latest
+        ports:
+            - "27017:27017"
+        volumes:
+            - mongodata:/data/db
+volumes:
+#     mongo_data_container:
+    mongodata:
