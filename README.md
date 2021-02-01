@@ -84,9 +84,9 @@ Hoje são gerados 100.000 incidentes por mês para serem tratados pela Squad do 
 
 5. **Formalizar pelo Teams  sobre o fechamento de Incidentes Falsos Positivos**
 
-   OBS: Alertas Verdadeiros serão verificados, mas não serão respondidos, inicialmente. Lembrando que a IA já realizou os testes na plataforma, facilitando muito a análise humana.
+6. **Alertas Verdadeiros serão verificados, já dando feedback de alerta sendo analisado. Lembrando que a IA já realizou os testes na plataforma, facilitando muito a análise humana.
 
-6. **Formalizar o teste através do vídeo com evidências, enviados junto com a mensagem do Teams.**
+7. **Formalizar o teste através do vídeo com evidências, enviados junto com a mensagem do Teams.**
 
 
 <h2>Melhorias Futuras:</h2>
