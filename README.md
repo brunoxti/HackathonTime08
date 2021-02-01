@@ -11,9 +11,7 @@
 <li>O teste além de ser executado ele é gravado em vídeo.</li>
 <li>O alerta é fechado caso os testes provem que o alerta é falso, caso contrário redirecionamos as evidências dos testes e o resultado do teste para a Squad responsável.</li>
 
-
-
-Camadas do Projeto
+## Camadas do Projeto:
 
 ### Solution NocWatcher.Core 
 
